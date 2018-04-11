@@ -1,0 +1,10 @@
+.gradle/
+.idea/
+app/build/
+IMKit/build/
+IMLib/build/
+XAlertDialogLibrary/build/
+build/
+gradle/
+local.properties
+*.iml

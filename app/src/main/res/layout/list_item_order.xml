@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="@dimen/small_card_margin" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp" >
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="#status"
+                    android:textColor="@color/themeOrange" />
+
+                <TextView
+                    android:id="@+id/txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="订单号：" />
+
+                <TextView
+                    android:id="@+id/tv_ordersn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/txt"
+                    android:layout_alignBottom="@+id/txt"
+                    android:layout_toRightOf="@+id/txt"
+                    android:text="#ordersn" />
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <ListView
+                android:id="@+id/listView_children"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false" >
+            </ListView>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:id="@+id/rlyt_coupon"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" >
+
+                <TextView
+                    android:id="@+id/tv_coupon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="11dp"
+                    android:text="#payprice"
+                    android:textColor="@color/themeOrange"
+                    android:textSize="@dimen/very_small_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="优惠券"
+                    android:textSize="@dimen/very_small_text_size" />
+
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout02"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" >
+
+                <TextView
+                    android:id="@+id/tv_dispatchprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/txt_payprice"
+                    android:layout_alignBottom="@+id/txt_payprice"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/txt_payprice"
+                    android:text="#运费"
+                    android:textSize="@dimen/very_small_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_payprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="11dp"
+                    android:text="#payprice"
+                    android:textColor="@color/themeOrange"
+                    android:textSize="@dimen/very_small_text_size" />
+
+                <TextView
+                    android:id="@+id/txt_payprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_payprice"
+                    android:layout_alignBottom="@+id/tv_payprice"
+                    android:layout_toLeftOf="@+id/tv_payprice"
+                    android:text="实付:"
+                    android:textSize="@dimen/very_small_text_size" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_dispatchprice"
+                    android:layout_alignBottom="@+id/tv_dispatchprice"
+                    android:layout_toLeftOf="@+id/tv_dispatchprice"
+                    android:text="运费:"
+                    android:textSize="@dimen/very_small_text_size" />
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp" >
+
+                <Button
+                    android:id="@+id/btn_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_arc_orange"
+                    android:focusable="false"
+                    android:text="右按钮"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/small_text_size" />
+
+                <Button
+                    android:id="@+id/btn_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/btn_right"
+                    android:background="@drawable/button1"
+                    android:focusable="false"
+                    android:text="左按钮"
+                    android:textColor="#bfbfbf"
+                    android:textSize="@dimen/small_text_size" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

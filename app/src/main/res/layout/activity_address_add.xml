@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_title_back" />
+
+    <ScrollView
+        android:id="@+id/profitmainView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+     <include layout="@layout/layout_splitline" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:background="#FFFFFF" >
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="22dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/consignee_name"
+                    android:textSize="@dimen/small_text_size" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_name"
+                    android:layout_alignBottom="@+id/tv_name"
+                    android:layout_toRightOf="@+id/tv_name"
+                    android:background="@null"
+                    android:ems="10"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/small_text_size" >
+
+                    <requestFocus />
+                </EditText>
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF" >
+
+                <TextView
+                    android:id="@+id/tv_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="22dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/phone_number_"
+                    android:textSize="@dimen/small_text_size" />
+
+                <EditText
+                    android:id="@+id/et_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv_tel"
+                    android:background="@null"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/small_text_size" />
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:id="@+id/rlyt_province"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF" >
+
+                <TextView
+                    android:id="@+id/province"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="22dp"
+                    android:gravity="center_vertical"
+                    android:text="省市区："
+                    android:textSize="@dimen/small_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_province"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/province"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/small_text_size" />
+
+                <ImageButton
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="31dp"
+                    android:background="@drawable/icon_right"
+                    android:contentDescription="@string/value" />
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#FFFFFF" >
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@+id/tv_address"
+                    android:background="@null"
+                    android:ems="30"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/small_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="15dp"
+                    android:text="详细地址："
+                    android:textSize="@dimen/small_text_size" />
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp" >
+
+                <Button
+                    android:id="@+id/btn_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="60dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/button_halfarc_orange"
+                    android:text="保存"
+                    android:textSize="@dimen/small_text_size"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

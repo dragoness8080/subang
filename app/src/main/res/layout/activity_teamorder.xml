@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+     <include layout="@layout/layout_title_back" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dip"
+            android:background="@color/white"
+            android:paddingTop="10dip" >
+
+            <TextView
+                android:id="@+id/tv_tab_1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="全部订单 "
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_tab_2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="待付款"
+                android:textSize="13sp" 
+      />
+
+            <TextView
+                android:id="@+id/tv_tab_3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="已付款 "
+                android:textSize="13sp" 
+      />
+
+            <TextView
+                android:id="@+id/tv_tab_4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="已完成"
+                android:textSize="13sp" 
+        />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+                        android:background="@color/white"
+            android:orientation="vertical"
+        >
+
+            <ImageView
+                android:id="@+id/iv_bottom_line"
+                android:layout_width="60dip"
+                android:layout_height="2dip"
+                android:scaleType="matrix"
+                android:visibility="invisible"
+                android:src="@color/themeOrange" />
+
+        </LinearLayout>
+    </LinearLayout>
+     <include layout="@layout/layout_splitline" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+ <include layout="@layout/layout_splitline" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:layout_height="50dp" >
+
+        <TextView
+            android:id="@+id/txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="元" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+               android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/txt"
+            android:textColor="@color/themeOrange"
+            android:layout_marginRight="2dp"
+            android:text="#price" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+       android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/tv_price"
+                    android:layout_marginRight="2dp"
+            android:text="预计收益" />
+
+    </RelativeLayout>
+
+</LinearLayout>

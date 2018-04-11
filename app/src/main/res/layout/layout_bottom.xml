@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="51dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_line_large_size"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/txtGrayColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+  
+        <LinearLayout
+            android:id="@+id/tab_1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/ibtn_home"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/btn_home_normal"
+                android:clickable="false" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:text="首页"
+                android:gravity="center"
+                android:textColor="@color/txtGrayColor"
+                android:textSize="@dimen/very_small_text_size" />
+        </LinearLayout>
+
+        
+
+        <LinearLayout
+            android:id="@+id/tab_2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/ibtn_car"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/btn_car_normal"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:text="购物车"
+                   android:gravity="center"
+                android:textColor="@color/txtGrayColor"
+                android:textSize="@dimen/very_small_text_size" />
+        </LinearLayout>
+<LinearLayout
+            android:id="@+id/tab_3"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/ibtn_culture"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/btn_culture_normol"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:text="素邦文化"
+                   android:gravity="center"
+                android:textColor="@color/txtGrayColor"
+                android:textSize="@dimen/very_small_text_size" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_4"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/ibtn_notice"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/btn_notice_normal"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                   android:gravity="center"
+                android:text="消息"
+                android:textColor="@color/txtGrayColor"
+                android:textSize="@dimen/very_small_text_size" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_5"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/ibtn_person"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/btn_person_normal"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                   android:gravity="center"
+                android:text="会员中心"
+                android:textColor="@color/txtGrayColor"
+                android:textSize="@dimen/very_small_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

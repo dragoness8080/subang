@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+<!-- 左右半圆角 橙色背景 无边框 长方体 -->  
+    <solid android:color="@color/themeOrange" >
+    </solid>
+ <size android:height="36dp" />
+    <corners
+        android:bottomLeftRadius="18dp"
+        android:bottomRightRadius="18dp"
+        android:topLeftRadius="18dp"
+        android:topRightRadius="18dp" >
+    </corners>
+
+</shape>

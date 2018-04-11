@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/bg_coupon2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imageView1"
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/bg_coupon1" />
+
+            <TextView
+                android:id="@+id/tv_couponname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageView2"
+                android:layout_centerHorizontal="true"
+                android:text="优惠券" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" >
+
+                <TextView
+                    android:id="@+id/tv_deduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="32dp"
+                    android:text="10"
+                    android:textColor="#cd3811"
+                    android:textSize="@dimen/big_text_size" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                  android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tv_deduct"
+                    android:text="元"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#cd3811"
+                    android:textSize="@dimen/very_small_text_size" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                  android:layout_centerHorizontal="true"
+                android:layout_below="@+id/relativeLayout1"
+                android:layout_marginTop="10dp"
+                android:text="有效期至XXX" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

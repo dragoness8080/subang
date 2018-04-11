@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/white"
+    tools:showIn="@layout/activity_webview">
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/wx_share"
+        android:gravity="center"
+        android:drawableTop="@drawable/wx_share"
+        android:text="微信"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/friend_share"
+        android:gravity="center"
+        android:drawableTop="@drawable/friend_share"
+        android:text="朋友圈"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/copy"
+        android:gravity="center"
+        android:drawableTop="@drawable/copy"
+        android:text="复制"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

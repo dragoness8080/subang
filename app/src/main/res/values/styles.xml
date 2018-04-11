@@ -1,0 +1,62 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <!-- extend one of the Theme.AppCompat themes -->
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- toolbar（actionbar）颜色 -->
+        <item name="colorPrimary">@color/themeOrange</item>
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">@color/themeOrange</item>
+        <!-- 窗口的背景颜色 -->
+        <item name="android:windowBackground">@color/bgColor</item>
+  
+        <!-- customize the color palette -->
+    </style>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+
+    <style name="MyDialogStyleBottom" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground"> @android:color/transparent </item>
+        <item name="android:backgroundDimEnabled">false</item>
+ <!-- activity不变暗 -->
+    </style>
+    
+    <style name="roomRatingBar" parent="@android:style/Widget.RatingBar">
+		<item name="android:progressDrawable">@drawable/rating_yellow</item>
+		<item name="android:minHeight">52px</item>
+		<item name="android:maxHeight">52px</item>
+	</style>
+	
+        <style name="roomRatingBar2" parent="@android:style/Widget.RatingBar">
+		<item name="android:progressDrawable">@drawable/rating_small_yellow</item>
+		<item name="android:minHeight">37px</item>
+		<item name="android:maxHeight">37px</item>
+	</style>
+
+</resources>

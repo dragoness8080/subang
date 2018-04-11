@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/themeOrange" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/very_big_text_size" />
+    </RelativeLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:padding="10dip" >
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/inputbox_top"
+            android:padding="10dip" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1" >
+
+                <ImageButton
+                    android:id="@+id/icon_square"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:clickable="false"
+                    android:contentDescription="@string/value"
+                    android:src="@drawable/icon_phone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="5" >
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:background="@null"
+                    android:hint="@string/tips_phonenumber"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:singleLine="true"
+                    android:textSize="@dimen/small_text_size" >
+
+                    <requestFocus />
+                </EditText>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="3" >
+
+                <Button
+                    android:id="@+id/btn_send"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/button_arc_orange"
+                    android:text="获取验证码"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/small_text_size" />
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/inputbox_bottom"
+            android:padding="10dip" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1" >
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:clickable="false"
+                    android:contentDescription="@string/value"
+                    android:src="@drawable/icon_code" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="8" >
+
+                <EditText
+                    android:id="@+id/et_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:background="@null"
+                    android:hint="@string/tips_verification_code"
+                    android:inputType="phone"
+                    android:maxLength="6"
+                    android:singleLine="true"
+                    android:textSize="@dimen/small_text_size" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="250dp"
+        android:layout_height="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/button_halfarc_orange"
+        android:text="登录"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/small_text_size" />
+
+</RelativeLayout>

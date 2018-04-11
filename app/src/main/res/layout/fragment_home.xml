@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <com.gcs.suban.view.VpSwipeRefreshLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/swipeRefreshLayout_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <com.gcs.suban.view.MyScrollview
+            android:id="@+id/scrollView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical" >
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                    <TextView
+                        android:text="首页"
+                        android:textColor="@color/white"
+                        android:background="@color/themeOrange"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"/>
+                        <TextView
+                            android:id="@+id/call_service"
+                            android:drawableLeft="@drawable/kefu2"
+                            android:gravity="center"
+                            android:drawablePadding="10dp"
+                            android:text="联系客服"
+                            android:layout_gravity="right|center_vertical"
+                            android:textSize="14dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </FrameLayout>
+                    <com.youth.banner.Banner
+                        android:id="@+id/banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="175dp"/>
+
+                    <com.gcs.suban.view.NoSlideGridView
+                        android:id="@+id/list_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:horizontalSpacing="5dp"
+                        android:verticalSpacing="5dp"
+                        android:background="@color/white"
+                        android:divider="@color/bgColor"
+                        android:numColumns="1" />
+
+                    <!--
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:background="@drawable/pic_home_bottom" />
+                     -->
+                </LinearLayout>
+
+
+        </com.gcs.suban.view.MyScrollview>
+            <ImageView
+                android:id="@+id/move_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/move_top"
+                android:layout_gravity="right|bottom"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                />
+        </FrameLayout>
+    </com.gcs.suban.view.VpSwipeRefreshLayout>
+
+</LinearLayout>

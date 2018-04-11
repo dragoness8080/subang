@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/themeOrange" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dip"
+            android:text="分销中心"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_center" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/icon_tip" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:text="本店累计消费满1次，才可成为&lt;素邦本色生活馆>购物中心推客，您已消费0次，请继续努力！"
+            android:textSize="@dimen/small_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp" >
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/green"
+            android:text="继续去购物"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp" >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_tuike" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:text="推客特权"
+            android:textSize="@dimen/small_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon_greencode" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/imageView3"
+            android:text="独立微店"
+            android:textSize="@dimen/small_text_size" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_alignLeft="@+id/textView3"
+            android:text="拥有自己的微店及推广二维码"
+            android:textSize="@dimen/small_text_size" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_alignLeft="@+id/imageView3"
+            android:layout_below="@+id/imageView3"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_recharge" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignTop="@+id/imageView4"
+            android:text="销售拿佣金"
+            android:textSize="@dimen/small_text_size" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView4"
+            android:layout_alignLeft="@+id/textView5"
+            android:text="微店卖出商品，您可以获得佣金"
+            android:textSize="@dimen/small_text_size" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView4"
+            android:layout_below="@+id/imageView4"
+                        android:textSize="@dimen/small_text_size"
+            android:layout_marginTop="20dp"
+            android:text="推客的商品销售统一由厂家直接收款、直接发货，并提供产品的售后服务，推客由厂家统一设置。" />
+
+    </RelativeLayout>
+
+</LinearLayout>

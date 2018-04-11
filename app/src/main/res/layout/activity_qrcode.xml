@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_above="@+id/buttom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/icon_back"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="标题"
+                android:textSize="@dimen/very_big_text_size"/>
+
+            <Button
+                android:id="@+id/btn_share"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_share"/>
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_qrcode2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.gcs.suban.view.SquareLayout2
+                        android:id="@+id/bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/test_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_qrcode"/>
+
+                    </com.gcs.suban.view.SquareLayout2>
+
+                    <LinearLayout
+                        android:id="@+id/bg2"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_below="@+id/bg"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/green">
+                        </RelativeLayout>
+
+                        <include layout="@layout/layout_splitline"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+
+                            <ImageView
+                                android:id="@+id/img_qrcode"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="50dp"
+                                android:src="@drawable/bg_pic"/>
+
+                            <TextView
+                                android:id="@+id/textView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img_qrcode"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="扫描二维码，查看详情"
+                                android:textColor="@color/white"/>
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="200dp"
+                                android:layout_height="37dp"
+                                android:layout_below="@+id/textView1"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/bg_qrcodetxt"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_avatar"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_below="@+id/bg"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="-20dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bg"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="15dp"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/very_big_text_size"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/layout_splitline"/>
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/rlyt_linkshare"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="0"
+                android:background="@drawable/button1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_linkshare"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/imageView1"
+                        android:gravity="center"
+                        android:text="链接推广"
+                        android:textSize="@dimen/normal_text_size"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlyt_picshare"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_picshare"/>
+
+                    <TextView
+                        android:id="@+id/tv_buy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/imageView2"
+                        android:gravity="center"
+                        android:text="分享推广"
+                        android:textSize="@dimen/normal_text_size"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/buttom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <include layout="@layout/share_buttom"/>
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_title_back" />
+
+    <LinearLayout
+        android:id="@+id/layout_null_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <include
+            android:id="@+id/layout_news"
+            layout="@layout/layout_null_news" />
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/swipeRefreshLayout_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.gcs.suban.view.LoadListView
+            android:id="@+id/list_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/bgColor"
+            android:dividerHeight="2dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

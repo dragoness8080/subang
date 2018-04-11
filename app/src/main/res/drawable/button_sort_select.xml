@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<!-- 圆角 白色背景 灰色边框 长方体 -->  
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">  
+    <item>  
+        <shape>  
+            <solid android:color="#FFFFFF" />  
+            <corners android:topLeftRadius="15dp" android:topRightRadius="15dp"  
+                android:bottomRightRadius="15dp" android:bottomLeftRadius="15dp" />  
+            <stroke android:width="0.5dp" android:color="@color/themeOrange" />  
+        </shape>  
+    </item>  
+
+</layer-list>  

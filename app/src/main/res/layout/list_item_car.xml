@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:descendantFocusability="blocksDescendants"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="@dimen/small_card_margin" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/white" >
+
+            <CheckBox
+                android:id="@+id/shop_check"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/check_circle"
+                android:button="@null" />
+
+            <ImageView
+                android:id="@+id/img_pic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/shop_check" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img_pic"
+                android:layout_marginLeft="21dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/img_pic"
+                android:ellipsize="end"
+                android:maxEms="8"
+                android:singleLine="true"
+                android:text="#商品名称" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_name"
+                android:layout_alignBottom="@+id/tv_name"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:text="#价格"
+                android:textColor="@color/themeOrange" />
+
+            <ImageButton
+                android:id="@+id/icon_minus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/tv_num"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/tv_num"
+                android:background="@drawable/icon_minus" />
+
+            <ImageButton
+                android:id="@+id/icon_plus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignRight="@+id/tv_price"
+                android:layout_alignTop="@+id/tv_num"
+                android:background="@drawable/icon_plus" />
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/shop_check"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/icon_plus"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/small_text_size" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
