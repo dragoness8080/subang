@@ -23,4 +23,10 @@
    <!-- 按钮颜色  绿色-->
   <color name="green">#00cc00</color>
 
+    <!-- 已支付 -->
+    <color name="blue">#008FD7</color>
+
+    <!-- 已发货 -->
+    <color name="orange">#F08519</color>
+
 </resources>
