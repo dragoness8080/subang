@@ -17,6 +17,7 @@ import com.gcs.suban.MyDate;
 import com.gcs.suban.Url;
 import com.gcs.suban.app;
 import com.gcs.suban.bean.OrderBean;
+import com.gcs.suban.bean.ShopDataBean;
 import com.gcs.suban.listener.OnDetailListener;
 import com.gcs.suban.listener.OnOrderHelperListener;
 import com.gcs.suban.listener.OnOrderListListener;
@@ -59,8 +60,6 @@ public class TeamOrderModelImpl implements OrderModel {
 										JSONObject jsonObjectSon = (JSONObject) jsonArray
 												.opt(i);
 										OrderBean bean = new OrderBean();
-										bean.price = jsonObjectSon
-												.getDouble("ordercommission");
 										bean.createtime = jsonObjectSon
 												.getString("createtime");
 										bean.statusname = jsonObjectSon
@@ -71,6 +70,12 @@ public class TeamOrderModelImpl implements OrderModel {
 												.getString("nickname");
 										bean.level = jsonObjectSon
 												.getString("level");
+										bean.agentname = jsonObjectSon
+												.getString("agentname");
+										bean.agentlevel = jsonObjectSon
+												.getString("agentlevel");
+										bean.goods = jsonObjectSon.getString("list");
+
 										mListType.add(bean);
 									}
 								} else {

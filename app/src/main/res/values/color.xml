@@ -29,4 +29,7 @@
     <!-- 已发货 -->
     <color name="orange">#F08519</color>
 
+    <!-- 待支付 -->
+    <color name="skyblue">#3299CC</color>
+
 </resources>

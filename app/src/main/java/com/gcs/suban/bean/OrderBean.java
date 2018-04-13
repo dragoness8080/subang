@@ -41,7 +41,11 @@ public class OrderBean {
 	public String goodstitle; // 商品名
 	public String time; // 商品交易时间
 	public String refundmoney; // 退款金额
-	
+
+	public String agentname; //推荐会员昵称
+	public String agentlevel; //推荐会员等级
+
+
 	public List<ShopDataBean> mListType;
 
 }

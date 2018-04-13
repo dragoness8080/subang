@@ -36,7 +36,8 @@ public interface Url {
     String commission = host + "Sellcenter/commissionlog";//佣金明细
     String mycustom = host + "Sellcenter/mycustom";//我的顾客
     String myteam = host + "Sellcenter/myteam";//我的团队
-    String sellorders = host + "Sellcenter/sellorders";//分销订单
+    //String sellorders = host + "Sellcenter/sellorders";//分销订单
+    String sellorders = host + "TestSeller/sellorders"; //分销订单
     String commissionup = host + "Sellcenter/commissionup";//分销订单
     String mycommission = host + "Sellcenter/mycommission";//我的后台
 

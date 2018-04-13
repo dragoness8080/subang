@@ -9,6 +9,10 @@ public class ShopDataBean {
 	public String productprice;// 商品原价
 	public String salesreal;
 	public int total;//商品数量
+
+	public float commission; //佣金
+
+	public int status; //订单状态
 	
 	public String isspec;//是否有规格
 

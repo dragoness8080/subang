@@ -80,10 +80,19 @@
                     android:layout_marginLeft="10dp">
 
                     <TextView
-                        android:id="@+id/tv_nickname"
+                        android:id="@+id/v1_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="推荐人："
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v1_view"
                         android:layout_centerVertical="true"
                         android:text="#nickname"
                         android:textSize="@dimen/normal_text_size" />
@@ -107,10 +116,19 @@
                     android:layout_marginLeft="10dp">
 
                     <TextView
-                        android:id="@+id/tv_nickname1"
+                        android:id="@+id/v2_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="购买人："
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_nickname1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v2_view"
                         android:layout_centerVertical="true"
                         android:text="#nickname"
                         android:textSize="@dimen/normal_text_size" />
