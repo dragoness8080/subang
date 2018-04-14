@@ -22,7 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TeamOrderAdapter extends BaseListAdapter<OrderBean>{
-	public List<OrderBean> lists = new ArrayList<OrderBean>();
 	public List<ShopDataBean> mListType;
 
 	public TeamOrderGoodsAdapter adapter;
@@ -67,8 +66,8 @@ public class TeamOrderAdapter extends BaseListAdapter<OrderBean>{
 					.findViewById(R.id.tv_ordersn);
 			holder.Tv_time= (TextView) convertView
 					.findViewById(R.id.tv_time);
-			holder.Tv_status = (TextView) convertView
-					.findViewById(R.id.tv_status);
+			//holder.Tv_status = (TextView) convertView
+					//.findViewById(R.id.tv_status);
 			holder.Img_vip = (ImageView) convertView
 					.findViewById(R.id.img_vip);
 			holder.v1 = (RelativeLayout) convertView.findViewById(R.id.v1);
@@ -88,14 +87,16 @@ public class TeamOrderAdapter extends BaseListAdapter<OrderBean>{
 		holder.Tv_nickname1.setText(listItems.get(position).nickname);
 		holder.Tv_time.setText(listItems.get(position).createtime);
 		holder.Tv_ordersn.setText(listItems.get(position).ordersn);
-		holder.Tv_status.setText(listItems.get(position).statusname);
+		//holder.Tv_status.setText(listItems.get(position).statusname);
 
 		String agentlevel = listItems.get(position).agentlevel;
 		if(agentlevel.equals("0")){
 			holder.v1.setVisibility(View.GONE);
 		}else if(agentlevel.equals("1")){
+			holder.v1.setVisibility(View.VISIBLE);
 			holder.Img_vip.setBackgroundResource(R.drawable.icon_vip1);
 		}else if(agentlevel.equals("2")){
+			holder.v1.setVisibility(View.VISIBLE);
 			holder.Img_vip.setBackgroundResource(R.drawable.icon_vip2);
 		}
 
@@ -124,7 +125,7 @@ public class TeamOrderAdapter extends BaseListAdapter<OrderBean>{
 				dataBean.marketprice = jsonObject.getString("price");
 				dataBean.thumb = jsonObject.getString("thumb");
 				dataBean.title = jsonObject.getString("title");
-				dataBean.commission = (float)jsonObject.getDouble("commission");
+				dataBean.commission = (float)jsonObject.getDouble("commissions");
 				dataBean.total = jsonObject.getInt("total");
 				dataBean.status = status;
 				mListType.add(dataBean);
@@ -132,7 +133,9 @@ public class TeamOrderAdapter extends BaseListAdapter<OrderBean>{
 			adapter = new TeamOrderGoodsAdapter(context,mListType);
 			holder.goods_list.setAdapter(adapter);
 			setListViewHeightBasedOnChildren(holder.goods_list);
-
+			holder.goods_list.setFocusable(false);
+			holder.goods_list.setClickable(false);
+			holder.goods_list.setEnabled(false);
 		}catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -143,7 +146,7 @@ public class TeamOrderAdapter extends BaseListAdapter<OrderBean>{
 	/* 子ListView高度设置 */
 	public void setListViewHeightBasedOnChildren(ListView listView) {
 		// 获取ListView对应的Adapter
-		ConfirmAdapter listAdapter = (ConfirmAdapter) listView.getAdapter();
+		TeamOrderGoodsAdapter listAdapter = (TeamOrderGoodsAdapter) listView.getAdapter();
 		if (listAdapter == null) {
 			return;
 		}

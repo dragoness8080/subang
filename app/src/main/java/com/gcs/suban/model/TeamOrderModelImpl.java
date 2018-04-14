@@ -31,12 +31,13 @@ public class TeamOrderModelImpl implements OrderModel {
 	private String page = null;
 
 	@Override
-	public void getList(String url, String status, String mPage,
-			final OnOrderListListener listener) {
+	public void getList(String url, final String status, String mPage,
+						final OnOrderListListener listener) {
 		// TODO Auto-generated method stub
 		final String TAG = url + status;
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("openid",  MyDate.getMyVid());
+        //params.put("openid",  "obSNav_YOi008hNwM92VgQnFytps");
 		params.put("page", mPage);
 		params.put("status", status);
 		BaseVolleyRequest.StringRequestPost(context, url, TAG, params,
@@ -74,6 +75,7 @@ public class TeamOrderModelImpl implements OrderModel {
 												.getString("agentname");
 										bean.agentlevel = jsonObjectSon
 												.getString("agentlevel");
+										bean.status = jsonObjectSon.getInt("status");
 										bean.goods = jsonObjectSon.getString("list");
 
 										mListType.add(bean);

@@ -10,18 +10,14 @@ import com.gcs.suban.R;
 import com.gcs.suban.base.BaseListAdapter;
 import com.gcs.suban.bean.ShopDataBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TeamOrderGoodsAdapter extends BaseListAdapter<ShopDataBean> {
-    public List<ShopDataBean> lists = new ArrayList<ShopDataBean>();
-
-    public TeamOrderGoodsAdapter(Context context) {
-        super(context);
-    }
+    private String pic;
 
     public TeamOrderGoodsAdapter(Context context, List<ShopDataBean> list) {
         super(context, list);
+        InitImageLoader();
     }
 
     class ViewHolder{
@@ -35,6 +31,7 @@ public class TeamOrderGoodsAdapter extends BaseListAdapter<ShopDataBean> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ShopDataBean bean = listItems.get(position);
 
         ViewHolder holder = null;
         if(convertView == null){
@@ -52,26 +49,29 @@ public class TeamOrderGoodsAdapter extends BaseListAdapter<ShopDataBean> {
             convertView.setTag(holder);
         }
 
-        holder.Tv_title.setText(lists.get(position).title);
-        holder.Tv_money.setText(lists.get(position).marketprice + "å…ƒ");
-        holder.Tv_num.setText(lists.get(position).total);
-        holder.Tv_award.setText(lists.get(position).commission + "å…ƒ");
+        holder.Tv_title.setText(bean.title);
+        holder.Tv_money.setText(bean.marketprice + "Ôª");
+        holder.Tv_num.setText("x" + bean.total);
+        holder.Tv_award.setText(bean.commission + "Ôª");
 
-        int status = lists.get(position).status;
+        pic = bean.thumb;
+        imageLoader.displayImage(pic,holder.Img_goods,options);
+
+        int status = bean.status;
         if(status == 1){
-            holder.Tv_status.setText("å·²æ”¯ä»˜");
+            holder.Tv_status.setText("ÒÑÖ§¸¶");
             holder.Tv_status.setBackgroundResource(R.drawable.order_status_pay);
         }else if(status == 2){
-            holder.Tv_status.setText("å·²å‘è´§");
+            holder.Tv_status.setText("ÒÑ·¢»õ");
             holder.Tv_status.setBackgroundResource(R.drawable.order_status_send);
         }else if(status == 3){
-            holder.Tv_status.setText("å·²å®Œæˆ");
+            holder.Tv_status.setText("ÒÑÍê³É");
             holder.Tv_status.setBackgroundResource(R.drawable.order_staus_finish);
         }else if(status == 0){
-            holder.Tv_status.setText("å¾…æ”¯ä»˜");
+            holder.Tv_status.setText("´ıÖ§¸¶");
             holder.Tv_status.setBackgroundResource(R.drawable.order_status_wait);
         }else if(status == -1){
-            holder.Tv_status.setText("å·²å…³é—­");
+            holder.Tv_status.setText("ÒÑ¹Ø±Õ");
             holder.Tv_status.setBackgroundResource(R.drawable.order_status_close);
         }
 
