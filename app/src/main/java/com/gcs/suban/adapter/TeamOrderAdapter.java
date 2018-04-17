@@ -94,23 +94,23 @@ public class TeamOrderAdapter extends BaseListAdapter<OrderBean>{
 			holder.v1.setVisibility(View.GONE);
 		}else if(agentlevel.equals("1")){
 			holder.v1.setVisibility(View.VISIBLE);
-			holder.Img_vip.setBackgroundResource(R.drawable.icon_vip1);
+			holder.Img_vip.setBackgroundResource(R.drawable.icon_new_vip1);
 		}else if(agentlevel.equals("2")){
 			holder.v1.setVisibility(View.VISIBLE);
-			holder.Img_vip.setBackgroundResource(R.drawable.icon_vip2);
+			holder.Img_vip.setBackgroundResource(R.drawable.icon_new_vip2);
 		}
 
 		String level=listItems.get(position).level;
 		if(level.equals("1"))
 		{
-			holder.Img_vip1.setBackgroundResource(R.drawable.icon_vip1);
+			holder.Img_vip1.setBackgroundResource(R.drawable.icon_new_vip1);
 		}
 		else if(level.equals("2"))
 		{
-			holder.Img_vip1.setBackgroundResource(R.drawable.icon_vip2);
+			holder.Img_vip1.setBackgroundResource(R.drawable.icon_new_vip2);
 		}
 		else {
-			holder.Img_vip1.setBackgroundResource(R.drawable.icon_vip3);
+			holder.Img_vip1.setBackgroundResource(R.drawable.icon_new_vip3);
 		}
 
 		int status = listItems.get(position).status;
