@@ -166,6 +166,8 @@ public class attrSelectPopWindow extends BaseActivity implements
 
 		attrsChildbean = new AttrsChildbean();
 		shopDataBean = new ShopDataBean();
+
+		Tv_stock.setVisibility(View.GONE);
 	}
 
 	/**
