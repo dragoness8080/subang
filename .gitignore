@@ -8,3 +8,5 @@ build/
 gradle/
 local.properties
 *.iml
+app/release/
+.DS_Store
