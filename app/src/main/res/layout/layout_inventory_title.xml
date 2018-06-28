@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/titleGrayColor">
+
+    <ImageButton
+        android:id="@+id/back_stock"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/icon_back"/>
+
+    <TextView
+        android:id="@+id/title_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="标题"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/wallet_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:text="按钮"
+        android:textColor="@color/white"
+        android:background="@drawable/button_halfarc_orange"/>
+
+</RelativeLayout>

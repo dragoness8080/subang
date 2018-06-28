@@ -32,6 +32,7 @@ OnRefreshListener{
 	protected String status;
 	protected Boolean isRefresh = false;
 
+
 	protected OrderModel model;
 
 	protected List<OrderBean> mListType = new ArrayList<OrderBean>();

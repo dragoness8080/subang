@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_inventory_title" />
+
+    <include layout="@layout/layout_splitline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dip"
+            android:paddingTop="10dip"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_radio_1"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_radio_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="金额"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.01"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#bfbfbf"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_radio_2"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_radio_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="数量"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/stock_bottom_line"
+                android:layout_width="150dip"
+                android:layout_height="2dip"
+                android:scaleType="matrix"
+                android:visibility="invisible"
+                android:src="@color/themeOrange"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_splitline" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/stock_page"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

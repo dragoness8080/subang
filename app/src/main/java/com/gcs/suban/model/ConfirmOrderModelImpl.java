@@ -119,6 +119,7 @@ public class ConfirmOrderModelImpl implements ConfirmModel {
 		params.put("optionid", bean.optionid);
 		params.put("remark", bean.remark);
 		params.put("coupondataid", bean.coupondataid);
+		Log.i(TAG,"POSTÇëÇó³É¹¦-->" + params.toString());
 		Log.e(TAG, "addressid:" + bean.addressid);
 		BaseVolleyRequest.StringRequestPost(context, url, TAG, params,
 				new BaseStrVolleyInterFace(context,

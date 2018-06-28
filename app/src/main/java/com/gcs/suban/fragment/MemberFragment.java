@@ -26,12 +26,14 @@ import com.gcs.suban.activity.CollectActivity;
 import com.gcs.suban.activity.CouponActivity;
 import com.gcs.suban.activity.CustomerActivity;
 import com.gcs.suban.activity.FootprintActivity;
+import com.gcs.suban.activity.InventoryActivity;
 import com.gcs.suban.activity.MessageActvity;
 import com.gcs.suban.activity.OrderActivity;
 import com.gcs.suban.activity.PersonActivity;
 import com.gcs.suban.activity.QrCodeActivity;
 import com.gcs.suban.activity.RechargeActivity;
 import com.gcs.suban.activity.SetActivity;
+import com.gcs.suban.activity.StockApplyActivity;
 import com.gcs.suban.activity.TeamActivity;
 import com.gcs.suban.activity.TeamOrderActivity;
 import com.gcs.suban.activity.WithdrawalActivity;
@@ -99,6 +101,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     private CardView Cv_person_commission;
     private CardView Cv_person_customer;
     private CardView Cv_person_myteam;
+    private CardView Cv_stock;
 
     private RelativeLayout Rlyt_all;
     private RelativeLayout Rlyt_paid;
@@ -126,6 +129,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
 
     private String isVIP = "0";
     private String time = "0";
+    private String inventory_grade = "0";
 
     private ACache mCache;
 
@@ -248,6 +252,16 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
                 Intent intent_around = new Intent(context, AroundActivity.class);
                 startActivity(intent_around);
                 break;
+            case R.id.cv_stock:
+                Log.i(TAG, "inventory: " + inventory_grade);
+                if(inventory_grade == null || inventory_grade.equals("0")){
+                    Intent intent_apply = new Intent(context, StockApplyActivity.class);
+                    startActivity(intent_apply);
+                }else{
+                    Intent intent_stock = new Intent(context, InventoryActivity.class);
+                    startActivity(intent_stock);
+                }
+                break;
             default:
                 break;
         }
@@ -322,6 +336,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
                 .findViewById(R.id.cv_person_custom);
         Cv_person_myteam = (CardView) context
                 .findViewById(R.id.cv_person_myteam);
+        Cv_stock = (CardView) context.findViewById(R.id.cv_stock);
 
         Rlyt_all = (RelativeLayout) context.findViewById(R.id.rlyt_all_orders);
         Rlyt_paid = (RelativeLayout) context
@@ -378,6 +393,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Cv_person_commission.setOnClickListener(this);
         Cv_person_customer.setOnClickListener(this);
         Cv_person_myteam.setOnClickListener(this);
+        Cv_stock.setOnClickListener(this);
 
         hideView();
 
@@ -433,6 +449,8 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Tv_time.setText(time);
 
         imageLoader.displayImage(bean.avatar, Img_logo, options3);
+
+        inventory_grade = bean.inventory_grade;
 
         ShowView();
     }
@@ -493,7 +511,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
             Img_level.setVisibility(View.INVISIBLE);
         } else {
             Img_level.setVisibility(View.VISIBLE);
-            Cv_person_time.setVisibility(View.VISIBLE);
+            //Cv_person_time.setVisibility(View.VISIBLE);
         }
 
 

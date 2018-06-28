@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_title_back" />
+    <include layout="@layout/layout_splitline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dip"
+            android:background="@color/white"
+            android:paddingTop="10dip">
+
+            <TextView
+                android:id="@+id/tv_tab_1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="全部订单"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tv_tab_2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="购买订单"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tv_tab_3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="自提订单"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tv_tab_4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="下属代理"
+                android:textSize="13sp"/>
+            <!--
+            <TextView
+                android:id="@+id/tv_tab_5"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="返点订单"
+                android:textSize="13sp"/>
+            -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_bottom_line"
+                android:layout_width="60dip"
+                android:layout_height="2dip"
+                android:scaleType="matrix"
+                android:visibility="invisible"
+                android:src="@color/themeOrange"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <include layout="@layout/layout_splitline" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

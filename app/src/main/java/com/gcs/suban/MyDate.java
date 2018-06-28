@@ -14,8 +14,6 @@ public class MyDate {
 	public static String wxreq="";//微信请求
 	public static int wxresp=0;//微信回调
 
-	
-
 	public static String getMyVid() {
 		Log.i("MyData", "myvid="+myvid);
 		if(myvid.equals(""))
@@ -23,6 +21,7 @@ public class MyDate {
 			String vid=(String) SharedPreference.getParam(app.getContext(), "vid", "String");
 			MyDate.setMyVid(vid);
 		}
+		//return "obSNav_YOi008hNwM92VgQnFytps";
 		return myvid;
 	}
 

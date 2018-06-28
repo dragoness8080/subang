@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_stock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/btn_stock_apply"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/order_staus_finish"
+            android:text="建仓申请"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

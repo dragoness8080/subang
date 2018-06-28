@@ -72,6 +72,7 @@ public interface Url {
     String addcar = host + "Order/addshoppingcart";//加入购物车
     String carnummod = host + "Order/cartgoodsedit";//购物车数量修改
     String cardel = host + "Order/cartgoodsdel";//购物车删除
+
     String cartaccount = host + "OrderForm/cartaccount";//购物车结算
     String confirmcar = host + "OrderForm/cartup";//购物车结算
     String confirmorder = host + "OrderForm/confirmorder";//订单确认界面
@@ -92,6 +93,28 @@ public interface Url {
     String refundinfo = host + "OrderForm/confirmrefund";//退款信息
     String refundimgup = host + "OrderForm/refundimgup";//退款图片上传
 
+    /*
+    String cartaccount = host + "Mytest/cartaccount";//购物车结算
+    String confirmcar = host + "Mytest/cartup";//购物车结算
+    String confirmorder = host + "Mytest/confirmorder";//订单确认界面
+    String addorder = host + "Mytest/order";//订单确认界面
+    String paysuccess = host + "Mytest/paysuccess";//支付成功
+    String orderlist = host + "Mytest/orderlist";//订单列表
+    String orderdetails = host + "Mytest/getorderdetails";//订单详情
+    String cancelorder = host + "Mytest/cancelorder";//取消订单
+    String delorder = host + "Mytest/delorder";//删除订单
+    String reordersn = host + "Mytest/reordersn";//重新生成订单号
+    String confirmtake = host + "Mytest/confirmtake";//取消收货订单
+    String refund = host + "Mytest/refund";//退款申请
+    String cancelrefund = host + "Mytest/cancelrefund";//取消退款申请
+    String express = host + "Mytest/express";//物流信息
+    String commentimgup = host + "Mytest/commentimgup";//评论图片上传
+    String commentsup = host + "Mytest/commentsup";//评论上传
+    String appendcommentsup = host + "Mytest/appendcommentsup";//追加评论上传
+    String refundinfo = host + "Mytest/confirmrefund";//退款信息
+    String refundimgup = host + "Mytest/refundimgup";//退款图片上传
+`   */
+
     String address = host + "Address/addresslist";//收货地址列表
     String addaddress = host + "Address/newaddress";//添加收货地址
     String changeaddress = host + "Address/modaddress";//修改收货地址
@@ -102,6 +125,24 @@ public interface Url {
     String search = host + "Member/search";
 
     String sharecontent = host + "Share/share_content";//推广二维码
+
+    String stock_img = host + "Inventory/stock_img";//库存说明图片
+    String gradelist = host + "Inventory/gradelist";//库存等级列表
+    String stock_apply = host + "Inventory/apply";//仓库申请
+    String get_apply = host + "Inventory/getapply";//获取申请
+    String add_stock = host + "Inventory/setpayapply";//自动添加云仓
+    String get_inventory = host + "Inventory/gettotal";//获取库存总数
+    String get_logs = host + "Inventory/getlogs";//获取日志
+    String goodslist = host + "Inventory/goodslist";//库存商品列表
+    String goodsinfo = host + "Inventory/goodsinfo";//库存商品信息
+    String getsettled = host + "Inventory/getsettle";//结算信息
+    String getbalance = host + "Inventory/getbalance";//业绩结算
+    String stock_cover = host + "Inventory/setStockCover";//补仓申请
+    String add_cover = host + "Inventory/coverStock";//自动补仓
+    String selfapply = host + "Inventory/selfapply";//自提申请
+    String addselfapply = host + "Inventory/addselfapply";//创建自提订单
+    String getselfbuy = host + "Inventory/getSelf";//获取自提信息
+    String cancelself = host + "Inventory/cancelself";//取消自提信息
 
     String wxToken = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + Constants.WX_APP_KEY
             + "&secret=" + Constants.WX_APP_SECRET

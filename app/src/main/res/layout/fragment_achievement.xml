@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/search_date"
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:hint="请点击选择年月"
+            android:layout_marginLeft="15dip"
+            android:gravity="center"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/search_btn"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dip"
+            android:background="@drawable/icon_search"/>
+    </RelativeLayout>
+    <include layout="@layout/layout_splitline" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginTop="15dip"
+            android:text="业绩提成："
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_title"
+            android:layout_toRightOf="@id/tv_title"
+            android:layout_marginLeft="15dip"
+            android:text="120.56元"
+            android:textColor="@color/red_btn_bg_color"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dip"
+            android:layout_marginBottom="5dip"
+            android:text="业绩详情"
+            android:textSize="12sp"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+    <include layout="@layout/layout_splitline" />
+
+    <com.gcs.suban.view.LoadListView
+        android:id="@+id/bonus_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:divider="@null">
+
+    </com.gcs.suban.view.LoadListView>
+</LinearLayout>

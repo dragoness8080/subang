@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dip"
+        android:background="@color/white"
+        android:layout_marginBottom="2dip">
+
+        <ImageView
+            android:id="@+id/settle_avatar"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dip"
+            android:contentDescription="@string/value"/>
+
+        <TextView
+            android:id="@+id/settle_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/settle_avatar"
+            android:layout_toRightOf="@id/settle_avatar"
+            android:layout_marginLeft="10dip"
+            android:text="＃昵称"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/team_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/settle_avatar"
+            android:layout_marginLeft="10dip"
+            android:text="#团队业绩"
+            android:textColor="@color/red_btn_bg_color"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/settle_ratio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/team_balance"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dip"
+            android:text="6%"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/stock_static"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/settle_avatar"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/settle_avatar"
+            android:background="@drawable/order_status_close"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="1dip"
+            android:paddingBottom="1dip"
+            android:text="为建仓"
+            android:textSize="14sp"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+</LinearLayout>

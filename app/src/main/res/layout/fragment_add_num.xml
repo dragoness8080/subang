@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dip">
+
+    <ListView
+        android:id="@+id/list_goods"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </ListView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:paddingLeft="60dip"
+        android:paddingRight="60dip">
+
+        <Button
+            android:id="@+id/btn_save_num"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dip"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:background="@drawable/button_halfarc_orange"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

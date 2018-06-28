@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/titleGrayColor">
+
+        <ImageButton
+            android:id="@+id/wallet_back"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/icon_back"/>
+
+        <TextView
+            android:id="@+id/wallet_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="标题"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/wallet_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="补仓"
+            android:textColor="@color/white"
+            android:background="@drawable/button_halfarc_orange"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/layout_splitline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/surplus_money"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="剩余金额" />
+
+                <TextView
+                    android:id="@+id/tv_surplus_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="100"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/left_line"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.01"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:background="#bfbfbf"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/surplus_num"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="剩余数量"/>
+
+                <TextView
+                    android:id="@+id/tv_surplus_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="10"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/right_line"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.01"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:background="#bfbfbf"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="保证金" />
+
+                <TextView
+                    android:id="@+id/tv_bail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="1000"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="充值记录"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_splitline" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.gcs.suban.view.LoadListView
+            android:id="@+id/list_logs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </com.gcs.suban.view.LoadListView>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -36,5 +36,6 @@ public class MemberBean {
 	
 	public String duetotime;
 	public String dispose;
+	public String inventory_grade; //¿â´æµÈ¼¶
 
 }
