@@ -3,18 +3,25 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:src="@drawable/stock_top" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/stock_top" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -51,7 +58,7 @@
                 android:layout_alignBottom="@id/img_member_avatar"
                 android:layout_marginLeft="30dp"
                 android:layout_marginBottom="10dp"
-                android:text="剩余库存："
+                android:text="剩余："
                 android:textSize="14sp"
                 android:textColor="@color/black"/>
 

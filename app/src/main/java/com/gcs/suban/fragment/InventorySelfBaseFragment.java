@@ -14,6 +14,7 @@ import com.gcs.suban.bean.AddressBean;
 import com.gcs.suban.bean.InventorySelfBuyBean;
 import com.gcs.suban.bean.OrderBean;
 import com.gcs.suban.bean.ShopDataBean;
+import com.gcs.suban.eventbus.InventoryEvent;
 import com.gcs.suban.listener.OnInventorySelfListener;
 import com.gcs.suban.model.InventorySelfBuyModel;
 import com.gcs.suban.model.InventorySelfBuyModelimpl;
@@ -23,6 +24,8 @@ import com.gcs.suban.view.LoadListView.onLoadListViewListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.rong.eventbus.EventBus;
 
 
 public class InventorySelfBaseFragment extends BaseFragment implements onLoadListViewListener,OnRefreshListener,OnInventorySelfListener,AdapterView.OnItemClickListener {
@@ -38,6 +41,7 @@ public class InventorySelfBaseFragment extends BaseFragment implements onLoadLis
 
     @Override
     protected void init() {
+        EventBus.getDefault().register(this);
         loadListView.setOnLoadListViewListener(this);
         loadListView.setOnItemClickListener(this);
 
@@ -110,7 +114,7 @@ public class InventorySelfBaseFragment extends BaseFragment implements onLoadLis
     }
 
     @Override
-    public void onConfirmSuccess(String orderid, String ordersn, int ispay, String money) {
+    public void onConfirmSuccess(String orderid, String ordersn, int ispay, String money, String price) {
 
     }
 
@@ -120,9 +124,23 @@ public class InventorySelfBaseFragment extends BaseFragment implements onLoadLis
 
     }
 
+    /**
+     * ¹ã²¥ÊÂ¼þ
+     */
+    public void onEventMainThread(InventoryEvent event) {
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+            }
+        });
+        this.onRefresh();
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     protected void setData(List<InventorySelfBuyBean> list){

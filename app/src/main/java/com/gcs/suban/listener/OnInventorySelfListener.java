@@ -11,5 +11,5 @@ public interface OnInventorySelfListener {
     void onError(String error);
     void onSuccess(List<InventorySelfBuyBean> mListType, String page);
     void onSaveSuccess(OrderBean orderBean, AddressBean addressBean, List<ShopDataBean> mListType);
-    void onConfirmSuccess(String orderid,String ordersn,int ispay, String money);
+    void onConfirmSuccess(String orderid,String ordersn,int ispay, String money, String price);
 }

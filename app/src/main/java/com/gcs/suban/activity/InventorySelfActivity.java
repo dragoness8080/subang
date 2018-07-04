@@ -208,7 +208,7 @@ public class InventorySelfActivity extends FragmentActivity implements OnClickLi
                     position_now = position_three;
                     animation = new TranslateAnimation(position_old,position_now,0,0);
                     position_old = position_now;
-                    mTab3.setTextColor(getResources().getColor(R.color.themeOrange));
+                    mTab4.setTextColor(getResources().getColor(R.color.themeOrange));
                     break;
             }
             animation.setFillAfter(true);

@@ -15,4 +15,7 @@ public class InventorySelfBuyBean {
     public int num;
     public int total;
     public double freight;
+    public double price;
+    public String ordersn;
+    public int ispay;// «∑Ò÷ß∏∂ 1÷ß∏∂
 }

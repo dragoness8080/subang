@@ -19,7 +19,7 @@ import com.gcs.suban.bean.AddressBean;
 import com.gcs.suban.bean.InventorySelfBuyBean;
 import com.gcs.suban.bean.OrderBean;
 import com.gcs.suban.bean.ShopDataBean;
-import com.gcs.suban.eventbus.OrderEvent;
+import com.gcs.suban.eventbus.InventoryEvent;
 import com.gcs.suban.listener.OnInventorySelfListener;
 import com.gcs.suban.model.InventorySelfBuyModelimpl;
 import com.gcs.suban.popwindows.PayStockPopWindow;
@@ -28,6 +28,7 @@ import com.gcs.suban.tools.ToastTool;
 
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import io.rong.eventbus.EventBus;
 
 public class SelfConfirmActivity extends BaseActivity implements OnInventorySelfListener {
@@ -100,6 +101,7 @@ public class SelfConfirmActivity extends BaseActivity implements OnInventorySelf
 
         selfBuyModelimpl = new InventorySelfBuyModelimpl();
         selfBuyModelimpl.saveSelfBuy(Url.selfapply,goodsList,"0",this);
+        dialog.show();
     }
 
     @Override
@@ -148,6 +150,7 @@ public class SelfConfirmActivity extends BaseActivity implements OnInventorySelf
 
     @Override
     public void onSaveSuccess(OrderBean orderBean,AddressBean addressBean, List<ShopDataBean> mListType) {
+        dialog.dismiss();
         adapter = new ConfirmAdapter(this, mListType);
         listView.setAdapter(adapter);
         setListViewHeightBasedOnChildren(listView);
@@ -165,26 +168,37 @@ public class SelfConfirmActivity extends BaseActivity implements OnInventorySelf
                     + addressBean.address);
         }
 
-        Tv_totalprice.setText("￥" + orderBean.price);
+        Tv_totalprice.setText("￥" + orderBean.goodsprice);
         Tv_mail.setText("￥" + orderBean.dispatchprice);
-        Tv_payprice.setText("￥" + orderBean.dispatchprice);
+        Tv_payprice.setText("￥" + (Double .valueOf(orderBean.dispatchprice) + orderBean.goodsprice));
     }
 
     @Override
-    public void onConfirmSuccess(String orderid, String ordersn, int ispay, String money) {
+    public void onConfirmSuccess(String orderid, String ordersn, int ispay, String money, String price) {
+        dialog.dismiss();
         if(ispay == 1){
             Intent intent = new Intent(context, PayStockPopWindow.class);
             Bundle bundle = new Bundle();
             bundle.putInt("orderid",Integer.valueOf(orderid));
             bundle.putString("ordersn",ordersn);
             bundle.putString("dispatchprice",money);
-            bundle.putDouble("price", Double.valueOf(money));
+            bundle.putDouble("price", Double.valueOf(price));
             bundle.putInt("freightmodal",0);
             intent.putExtras(bundle);
             startActivity(intent);
         }else{
-            ToastTool.showToast(context,"自提申请成功");
-            finish();
+            SweetAlertDialog dialog = new SweetAlertDialog(context,SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("自提")
+                    .setContentText("自提成功")
+                    .setConfirmText("确定")
+                    .showCancelButton(false)
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            EventBus.getDefault().post(new InventoryEvent("update","msg"));
+                        }
+                    });
+            dialog.show();
         }
     }
 
@@ -215,7 +229,7 @@ public class SelfConfirmActivity extends BaseActivity implements OnInventorySelf
     /**
      * 广播事件
      */
-    public void onEventMainThread(OrderEvent event) {
+    public void onEventMainThread(InventoryEvent event) {
         finish();
     }
 

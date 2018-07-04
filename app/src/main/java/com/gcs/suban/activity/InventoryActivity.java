@@ -54,6 +54,7 @@ public class InventoryActivity extends BaseActivity implements OnInventoryStockL
         model.getTotalInfo(Url.get_inventory,this);
 
         InitImageLoader();
+        dialog.show();
     }
 
 
@@ -107,6 +108,7 @@ public class InventoryActivity extends BaseActivity implements OnInventoryStockL
         imageLoader.displayImage(avatar,Img_member_avatar,options4);
         //保存金额到本地
         SharedPreference.setParam(context,"gradeMoney",gradeMoney);
+        dialog.dismiss();
     }
 
     @Override

@@ -13,6 +13,7 @@ import com.gcs.suban.bean.OrderBean;
 import com.gcs.suban.bean.ShopDataBean;
 import com.gcs.suban.listener.OnBaseListener;
 import com.gcs.suban.listener.OnInventorySelfListener;
+import com.gcs.suban.listener.OnSelfListener;
 import com.gcs.suban.volley.BaseStrVolleyInterFace;
 import com.gcs.suban.volley.BaseVolleyRequest;
 import com.google.gson.Gson;
@@ -128,6 +129,10 @@ public class InventorySelfBuyModelimpl implements InventorySelfBuyModel {
                                 selfBuyBean.total = jsonObject1.getInt("total");
                                 selfBuyBean.status_str = jsonObject1.getString("status_str");
                                 selfBuyBean.freight = jsonObject1.getDouble("express_money");
+                                selfBuyBean.price = jsonObject1.getDouble("price"); //¶©µ¥½ð¶î
+                                selfBuyBean.ordersn = jsonObject1.getString("ordersn");
+                                selfBuyBean.ispay = jsonObject1.getInt("ispay");
+                                selfBuyBean.status = jsonObject1.getInt("status");
                                 selfBuyBeanList.add(selfBuyBean);
                             }
 
@@ -154,9 +159,10 @@ public class InventorySelfBuyModelimpl implements InventorySelfBuyModel {
     }
 
     @Override
-    public void cancelSelf(String url, int id, final OnBaseListener listener) {
+    public void cancelSelf(String url, int id, final OnSelfListener listener) {
         final String TAG = url;
         Map<String,String> params = new HashMap<String,String>();
+        params.put("openid", MyDate.getMyVid());
         params.put("id",String.valueOf(id));
         BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context,BaseStrVolleyInterFace.mListener,BaseStrVolleyInterFace.mErrorListener) {
             @Override
@@ -166,7 +172,7 @@ public class InventorySelfBuyModelimpl implements InventorySelfBuyModel {
                     String result = jsonObject.getString("result");
                     String resulttext = jsonObject.getString("resulttext");
                     if(result.equals("1001")){
-                        listener.onSuccess(resulttext);
+                        listener.onCancelSuccess(resulttext);
                     }else{
                         listener.onError(resulttext);
                     }
@@ -202,7 +208,69 @@ public class InventorySelfBuyModelimpl implements InventorySelfBuyModel {
                         String money = jsonObject.getString("freight");
                         int ispay = jsonObject.getInt("ispay");
                         String ordersn = jsonObject.getString("sn");
-                        listener.onConfirmSuccess(orderid,ordersn,ispay,money);
+                        String price = jsonObject.getString("price");
+                        listener.onConfirmSuccess(orderid,ordersn,ispay,money,price);
+                    }else{
+                        listener.onError(resulttext);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.onError(Url.jsonError);
+                }
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                listener.onError(Url.networkError);
+            }
+        });
+    }
+
+    @Override
+    public void paySelf(String url, String id, final OnSelfListener listener) {
+        final String TAG = url;
+        Map<String,String> params = new HashMap<String,String>();
+        params.put("openid", MyDate.getMyVid());
+        params.put("id", id);
+        BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context, BaseStrVolleyInterFace.mListener, BaseStrVolleyInterFace.mErrorListener) {
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String result = jsonObject.getString("result");
+                    String resulttext = jsonObject.getString("resulttext");
+                    if(result.equals("1001")){
+                        listener.onPaySuccess(resulttext);
+                    }else{
+                        listener.onError(resulttext);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.onError(Url.jsonError);
+                }
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                listener.onError(Url.networkError);
+            }
+        });
+    }
+
+    @Override
+    public void finishSelf(String url, String id, final OnSelfListener listener) {
+        final String TAG = url;
+        Map<String,String> params = new HashMap<String,String>();
+        params.put("id", String.valueOf(id));
+        BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context,BaseStrVolleyInterFace.mListener,BaseStrVolleyInterFace.mErrorListener) {
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String result = jsonObject.getString("result");
+                    String resulttext = jsonObject.getString("resulttext");
+                    if(result.equals("1001")){
+                        listener.onFinfishSuccess(resulttext);
                     }else{
                         listener.onError(resulttext);
                     }

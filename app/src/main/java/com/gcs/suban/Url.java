@@ -113,7 +113,7 @@ public interface Url {
     String appendcommentsup = host + "Mytest/appendcommentsup";//追加评论上传
     String refundinfo = host + "Mytest/confirmrefund";//退款信息
     String refundimgup = host + "Mytest/refundimgup";//退款图片上传
-`   */
+    */
 
     String address = host + "Address/addresslist";//收货地址列表
     String addaddress = host + "Address/newaddress";//添加收货地址
@@ -143,6 +143,9 @@ public interface Url {
     String addselfapply = host + "Inventory/addselfapply";//创建自提订单
     String getselfbuy = host + "Inventory/getSelf";//获取自提信息
     String cancelself = host + "Inventory/cancelself";//取消自提信息
+    String payself = host + "Inventory/payself";//支付自提信息(无需支付金额)
+    String self_express = host + "Inventory/express";//自提物流信息
+    String finish_self = host + "Inventory/finishself";//完成订单
 
     String wxToken = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + Constants.WX_APP_KEY
             + "&secret=" + Constants.WX_APP_SECRET

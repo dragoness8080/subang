@@ -61,6 +61,11 @@ public class InventoryLogAdapter extends BaseListAdapter<InventoryLogBean> {
         holder.Tv_jiancang_price.setText(String.valueOf(bean.money));
         holder.Tv_settle_price.setText(String.valueOf(bean.settle_money));
         holder.Tv_order_status.setText(bean.statusStr);
+
+        if(bean.types.equals("stock.selfbuy")){
+            holder.Tv_log_status.setVisibility(View.INVISIBLE);
+        }
+
         if(bean.status == 0){
             holder.Tv_order_status.setBackgroundResource(R.drawable.order_status_wait);
         }else if(bean.status == 1){
@@ -72,7 +77,7 @@ public class InventoryLogAdapter extends BaseListAdapter<InventoryLogBean> {
         }else if(bean.status == -1){
             holder.Tv_order_status.setBackgroundResource(R.drawable.order_status_close);
         }else if(bean.status == 99){
-            holder.Tv_order_status.setVisibility(View.GONE);
+            holder.Tv_order_status.setVisibility(View.INVISIBLE);
         }
         if(bean.refund == 0){
             holder.Tv_log_status.setText(bean.settledStr);

@@ -15,6 +15,7 @@ import com.gcs.suban.adapter.InventoryNumAdapter;
 import com.gcs.suban.base.BaseActivity;
 import com.gcs.suban.bean.InventoryGoodsBean;
 import com.gcs.suban.bean.InventorySelfBuyBean;
+import com.gcs.suban.eventbus.InventoryEvent;
 import com.gcs.suban.listener.OnInventoryGoodsListener;
 import com.gcs.suban.listener.OnInventorySelfListener;
 import com.gcs.suban.model.InventoryGoodsModel;
@@ -25,6 +26,8 @@ import com.gcs.suban.tools.ToastTool;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.rong.eventbus.EventBus;
 
 public class InventorySelfAddActivity extends BaseActivity implements OnInventoryGoodsListener {
 
@@ -38,6 +41,7 @@ public class InventorySelfAddActivity extends BaseActivity implements OnInventor
 
     @Override
     protected void init() {
+        EventBus.getDefault().register(this);
         setContentView(R.layout.activity_selfbuy);
         Tv_title = (TextView)findViewById(R.id.title);
         Ib_back = (ImageButton)findViewById(R.id.back);
@@ -53,6 +57,7 @@ public class InventorySelfAddActivity extends BaseActivity implements OnInventor
 
         goodsModel = new InventoryGoodsModelImpl();
         goodsModel.getGoodsList(Url.goodslist,this);
+        dialog.show();
     }
 
     @Override
@@ -80,6 +85,7 @@ public class InventorySelfAddActivity extends BaseActivity implements OnInventor
             goodsBeanList.addAll(list);
             adapter.notifyDataSetChanged();
         }
+        dialog.dismiss();
     }
 
     @Override
@@ -105,5 +111,15 @@ public class InventorySelfAddActivity extends BaseActivity implements OnInventor
         Intent intent = new Intent(context, SelfConfirmActivity.class);
         intent.putExtra("goodslist", data);
         startActivity(intent);
+    }
+
+    public void onEventMainThread(InventoryEvent event){
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
