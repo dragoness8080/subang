@@ -30,6 +30,7 @@ public class InventoryActivity extends BaseActivity implements OnInventoryStockL
     protected RelativeLayout Rl_bill;
     protected RelativeLayout Rl_stock_order;
     protected RelativeLayout Rl_self_order;
+    protected RelativeLayout Rl_income;
     protected InventoryStockModel model;
 
     @Override
@@ -42,6 +43,7 @@ public class InventoryActivity extends BaseActivity implements OnInventoryStockL
         Rl_bill = (RelativeLayout)findViewById(R.id.rl_bill);
         Rl_stock_order = (RelativeLayout)findViewById(R.id.rl_stock_order);
         Rl_self_order = (RelativeLayout)findViewById(R.id.rl_self_order);
+        Rl_income = (RelativeLayout)findViewById(R.id.rl_income);
         Img_member_avatar = (ImageView)findViewById(R.id.img_member_avatar);
 
         Rl_wallet.setOnClickListener(this);
@@ -49,6 +51,7 @@ public class InventoryActivity extends BaseActivity implements OnInventoryStockL
         Rl_bill.setOnClickListener(this);
         Rl_stock_order.setOnClickListener(this);
         Rl_self_order.setOnClickListener(this);
+        Rl_income.setOnClickListener(this);
 
         model = new InventoryStockModelImpl();
         model.getTotalInfo(Url.get_inventory,this);
@@ -94,6 +97,10 @@ public class InventoryActivity extends BaseActivity implements OnInventoryStockL
                         });
                 dialog.show();
                 */
+                break;
+            case R.id.rl_income:
+                Intent intent_income = new Intent(context, InventoryExtrActivity.class);
+                startActivity(intent_income);
                 break;
             default:
                 break;

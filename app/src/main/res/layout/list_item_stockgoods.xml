@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/goods_thumb"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"/>
+
+        <TextView
+            android:id="@+id/goods_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/goods_thumb"
+            android:layout_alignTop="@id/goods_thumb"
+            android:text="商品名称："
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/goods_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/goods_title_name"
+            android:layout_alignBaseline="@id/goods_title_name"
+            android:ems="12"
+            android:ellipsize="end"
+            android:text="＃名称"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/goods_num_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/goods_thumb"
+            android:layout_alignBottom="@id/goods_thumb"
+            android:text="拥有数量："
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/goods_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/goods_num_name"
+            android:layout_alignBaseline="@id/goods_num_name"
+            android:text="5"
+            android:textSize="14sp"
+            android:textColor="@color/orange"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/goods_num"
+            android:layout_alignBaseline="@id/goods_num"
+            android:text="件"
+            android:textSize="12sp"
+            android:paddingLeft="3dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

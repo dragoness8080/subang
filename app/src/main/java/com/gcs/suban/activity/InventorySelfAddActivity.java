@@ -48,7 +48,7 @@ public class InventorySelfAddActivity extends BaseActivity implements OnInventor
         listView = (ListView)findViewById(R.id.list_goods);
         Btn_ok = (Button)findViewById(R.id.btn_ok);
 
-        Tv_title.setText("…Í«Î◊‘Ã·");
+        Tv_title.setText("…Í«Î◊‘π∫");
         Ib_back.setOnClickListener(this);
         Btn_ok.setOnClickListener(this);
 

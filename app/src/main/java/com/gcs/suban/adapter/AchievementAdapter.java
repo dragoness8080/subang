@@ -44,11 +44,12 @@ public class AchievementAdapter extends BaseListAdapter<InventoryMemberBean> {
             convertView.setTag(viewHolder);
         }
 
-        final InventoryMemberBean bean = listItems.get(position);
+        InventoryMemberBean bean = listItems.get(position);
         viewHolder.Tv_nickname.setText(bean.nickname);
-        viewHolder.Tv_team_balance.setText(bean.balance);
+        viewHolder.Tv_team_balance.setText("гд" + bean.balance);
         viewHolder.Tv_ratio.setText(bean.ratio + "%");
         viewHolder.Tv_static.setBackgroundResource(bean.gradeid == 0 ? R.drawable.order_status_close : R.drawable.order_staus_finish);
+        viewHolder.Tv_static.setVisibility(View.INVISIBLE);
         imageLoader.displayImage(bean.imgUrl,viewHolder.Iv_avatar,options);
 
         return convertView;

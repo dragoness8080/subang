@@ -43,7 +43,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="自提订单"
+                android:text="自购订单"
                 android:textSize="13sp"/>
 
             <TextView

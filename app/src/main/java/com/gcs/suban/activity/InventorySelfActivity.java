@@ -64,10 +64,10 @@ public class InventorySelfActivity extends FragmentActivity implements OnClickLi
         mTab3 = (TextView)findViewById(R.id.tv_tab_3);
         mTab4 = (TextView)findViewById(R.id.tv_tab_4);
 
-        Tv_title.setText("自提订单");
+        Tv_title.setText("自购订单");
 
         Ib_back.setOnClickListener(this);
-        Ib_add.setText("自提");
+        Ib_add.setText("自购");
         Ib_add.setOnClickListener(this);
 
         mTab1.setOnClickListener(new MyOnClickListener(0));

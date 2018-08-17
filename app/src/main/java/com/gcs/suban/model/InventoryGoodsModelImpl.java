@@ -68,7 +68,49 @@ public class InventoryGoodsModelImpl implements InventoryGoodsModel {
     }
 
     @Override
-    public void getInfo(String url, OnInventoryGoodsListener listener) {
+    public void getInfo(String url, final OnInventoryGoodsListener listener) {
+        final String TAG = url;
+        Map<String,String> params = new HashMap<>();
+        params.put("openid",MyDate.getMyVid());
+        BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context,BaseStrVolleyInterFace.mListener,BaseStrVolleyInterFace.mErrorListener) {
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String result = jsonObject.getString("result");
+                    String resulttext = jsonObject.getString("resulttext");
+                    String isnull = jsonObject.getString("isnull");
+                    if(result.equals("1001")){
+                        List<InventoryGoodsBean> list = null;
+                        if(isnull.equals("0")){
+                            list = new ArrayList<>();
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
+                            for (int i=0;i<jsonArray.length();i++){
+                                JSONObject jsonObject1 = (JSONObject)jsonArray.opt(i);
+                                InventoryGoodsBean bean = new InventoryGoodsBean();
+                                bean.thumb = jsonObject1.getString("thumb");
+                                bean.num = jsonObject1.getString("num");
+                                bean.title = jsonObject1.getString("title");
+                                list.add(bean);
+                            }
+                            listener.onGoodsList(list);
+                        }else{
+                            listener.onGoodsList(list);
+                        }
 
+                    }else{
+                        listener.onError(resulttext);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.onError(Url.jsonError);
+                }
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                listener.onError(Url.networkError);
+            }
+        });
     }
 }

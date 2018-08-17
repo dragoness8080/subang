@@ -209,7 +209,7 @@ public class CultureActivity extends BaseActivity {
 
         WebSettings ws = webView.getSettings();
 
-        ws.setTextSize(TextSize.NORMAL);
+        //ws.setTextSize(TextSize.NORMAL);
         //ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);// 排版适应屏幕
         ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
 
@@ -222,6 +222,7 @@ public class CultureActivity extends BaseActivity {
         ws.setGeolocationDatabasePath("/data/data/org.itri.html5webview/databases/");// 设置定位的数据库路径
         ws.setDomStorageEnabled(true);
         ws.setSupportMultipleWindows(true);// 新加
+        ws.setTextZoom(100);
 
         xwebchromeclient = new myWebChromeClient();
         webView.setWebChromeClient(xwebchromeclient);

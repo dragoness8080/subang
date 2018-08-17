@@ -29,15 +29,33 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/team_balance"
+            android:id="@+id/team_balance_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/settle_avatar"
             android:layout_marginLeft="10dip"
+            android:text="团队业绩:"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/team_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/team_balance_title"
+            android:layout_toRightOf="@id/team_balance_title"
+            android:layout_marginLeft="5dp"
             android:text="#团队业绩"
             android:textColor="@color/red_btn_bg_color"
             android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/team_balance"
+            android:layout_toLeftOf="@id/settle_ratio"
+            android:text="比率:"
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/settle_ratio"
@@ -46,8 +64,9 @@
             android:layout_alignBaseline="@id/team_balance"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dip"
+            android:layout_marginLeft="5dp"
             android:text="6%"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="@color/black"/>
 
         <TextView
@@ -62,7 +81,7 @@
             android:paddingRight="10dip"
             android:paddingTop="1dip"
             android:paddingBottom="1dip"
-            android:text="为建仓"
+            android:text="未建仓"
             android:textSize="14sp"
             android:textColor="@color/white"/>
 

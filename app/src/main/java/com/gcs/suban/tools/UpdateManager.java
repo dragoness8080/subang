@@ -47,7 +47,7 @@ public class UpdateManager {
 	    private boolean cancelFlag = false; //取消下载标志位
 	    private String  banben; 
 	    private double serverVersion; //从服务器获取的版本号
-	    private double clientVersion = 15.0; //客户端当前的版本号
+	    private double clientVersion = 25.0; //客户端当前的版本号
 	    private String updateDescription; //更新内容描述信息
 	    private boolean forceUpdate = false; //是否强制更新
 
@@ -61,7 +61,8 @@ public class UpdateManager {
 	    
 	  //获取服务器数据
 	    public void VolleyGet() {
-			String url = "http://sbyssh.86tudi.cn/index.php/Update/update";
+			//String url = "http://sbyssh.86tudi.cn/index.php/Update/update";
+			String url = "http://ios.sbyssh.com/index.php/Update/update";
 			StringRequest request = new StringRequest(Request.Method.GET, url,
 					new Response.Listener<String>() {
 						@Override

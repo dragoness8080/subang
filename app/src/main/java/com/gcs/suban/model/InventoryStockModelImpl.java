@@ -7,12 +7,13 @@ import com.android.volley.VolleyError;
 import com.gcs.suban.MyDate;
 import com.gcs.suban.Url;
 import com.gcs.suban.app;
+import com.gcs.suban.bean.InventoryExtrBean;
 import com.gcs.suban.bean.InventoryLogBean;
+import com.gcs.suban.listener.OnInventoryExtrListener;
 import com.gcs.suban.listener.OnInventoryStockListener;
 import com.gcs.suban.volley.BaseStrVolleyInterFace;
 import com.gcs.suban.volley.BaseVolleyRequest;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -115,5 +116,61 @@ public class InventoryStockModelImpl implements InventoryStockModel {
     @Override
     public void getStock(String url, OnInventoryStockListener listener) {
 
+    }
+
+    @Override
+    public void getExtr(String url, String page, final OnInventoryExtrListener listener) {
+        final String TAG = url;
+        Map<String,String> params = new HashMap<>();
+        params.put("openid",MyDate.getMyVid());
+        params.put("page",page);
+        BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context,BaseStrVolleyInterFace.mListener,BaseStrVolleyInterFace.mErrorListener) {
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String result = jsonObject.getString("result");
+                    String resulttext = jsonObject.getString("resulttext");
+                    String page = jsonObject.getString("page");
+                    if(result.equals("1001")){
+                        String isnull = jsonObject.getString("isnull");
+                        List<InventoryExtrBean> list;
+                        if(isnull.equals("0")){
+                            list = new ArrayList<>();
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
+                            for(int i = 0; i < jsonArray.length(); i ++){
+                                InventoryExtrBean extrBean = new InventoryExtrBean();
+                                JSONObject jsonObject1 = (JSONObject)jsonArray.opt(i);
+                                extrBean.setCreatetime(jsonObject1.getString("createtime"));
+                                extrBean.setMoney(jsonObject1.getDouble("money"));
+                                extrBean.setFrom(jsonObject1.getString("from"));
+                                extrBean.setOrdersn(jsonObject1.getString("ordersn"));
+                                extrBean.setRefund(jsonObject1.getInt("refund"));
+                                extrBean.setSettled(jsonObject1.getInt("settled"));
+                                extrBean.setThumb(jsonObject1.getString("thumb"));
+                                extrBean.setTitle(jsonObject1.getString("title"));
+                                extrBean.setType(jsonObject1.getString("types"));
+                                extrBean.setNum(jsonObject1.getString("num"));
+                                list.add(extrBean);
+                            }
+
+                        }else{
+                            list = null;
+                        }
+                        listener.onExtrSuccess(page,list);
+                    }else{
+                        listener.onError(resulttext);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.onError(Url.jsonError);
+                }
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                listener.onError(Url.networkError);
+            }
+        });
     }
 }

@@ -24,10 +24,11 @@ public class MemberBean {
 	public String commission_orderprice;//销售额
 	public String commission_ok;//可提推广费
 	
-	public String myteam;//已经购买会员
+	public String myteam;//已经购买会员（购买商品的非分销会员）
 	public String mycustom;//未购买会员
 	public String commission_order;//推广订单
 	public String commission_total;//推广订单
+	public String tweer;//推客会员（购买198的分销会员）
 	
 	public String waitpay_num;
 	public String waitsend_num;

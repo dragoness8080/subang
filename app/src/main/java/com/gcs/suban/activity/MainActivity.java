@@ -23,8 +23,8 @@ import com.gcs.suban.bean.CouponBean;
 import com.gcs.suban.eventbus.MainEvent;
 import com.gcs.suban.fragment.ConversationListDynamicFragment;
 import com.gcs.suban.fragment.CultureFragment;
-import com.gcs.suban.fragment.HomeFragment;
 import com.gcs.suban.fragment.MemberFragment;
+import com.gcs.suban.fragment.NewHomeFragment;
 import com.gcs.suban.listener.OnCouponListener;
 import com.gcs.suban.model.CouPonModel;
 import com.gcs.suban.model.CouponModelImpl;
@@ -195,7 +195,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 		case 1:
 			hideFragment(transaction);
 			if (mTab01 == null) {
-				mTab01 = new HomeFragment();
+				//mTab01 = new HomeFragment();
+				mTab01 = new NewHomeFragment();
 				transaction.add(R.id.id_content, mTab01);
 			} else {
 				transaction.show(mTab01);

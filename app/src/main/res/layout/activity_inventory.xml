@@ -257,7 +257,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="10dp"
-                        android:text="自提订单"
+                        android:text="自购订单"
                         android:textColor="#1296db"/>
 
                 </RelativeLayout>
@@ -275,12 +275,27 @@
                 </LinearLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl_income"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:background="@color/white">
 
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/income"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="云仓返点"
+                        android:textColor="#1296db"/>
 
                 </RelativeLayout>
 

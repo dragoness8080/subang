@@ -15,6 +15,15 @@ public class ShopDataBean3 {
 	private String hrefurl;
 	private String option;
 	private String gid;
+	private int isarr;
+
+	public int getIsarr() {
+		return isarr;
+	}
+
+	public void setIsarr(int isarr) {
+		this.isarr = isarr;
+	}
 
 	public String getId() {
 		return id;

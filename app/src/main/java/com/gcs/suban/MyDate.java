@@ -21,7 +21,7 @@ public class MyDate {
 			String vid=(String) SharedPreference.getParam(app.getContext(), "vid", "String");
 			MyDate.setMyVid(vid);
 		}
-		//return "obSNav_YOi008hNwM92VgQnFytps";
+		//return "obSNav4qf6_8qtirp-XA2bZJRegk";
 		return myvid;
 	}
 

@@ -32,4 +32,6 @@
     <!-- 待支付 -->
     <color name="skyblue">#3299CC</color>
 
+    <color name="bgNotice">#11000000</color>
+
 </resources>

@@ -188,8 +188,8 @@ public class SelfConfirmActivity extends BaseActivity implements OnInventorySelf
             startActivity(intent);
         }else{
             SweetAlertDialog dialog = new SweetAlertDialog(context,SweetAlertDialog.SUCCESS_TYPE)
-                    .setTitleText("自提")
-                    .setContentText("自提成功")
+                    .setTitleText("自购")
+                    .setContentText("自购成功")
                     .setConfirmText("确定")
                     .showCancelButton(false)
                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {

@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class AchievementFragment extends BaseFragment implements onLoadListViewListener,DatePicker.OnDateChangedListener,OnInventorySettleListener {
 
@@ -46,6 +49,7 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
     protected boolean isRefresh = false;
     protected List<InventoryMemberBean> mListyType = new ArrayList<InventoryMemberBean>();
     protected InventorySettleModel model;
+    protected SweetAlertDialog alertDialog;
 
     @Nullable
     @Override
@@ -64,6 +68,7 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
 
         adapter = new AchievementAdapter(context,mListyType);
         listView.setAdapter(adapter);
+        listView.setOnLoadListViewListener(this);
 
         Tv_search.setOnClickListener(this);
         Ib_search.setOnClickListener(this);
@@ -82,6 +87,7 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
                 break;
             case R.id.search_btn:
                 page = "0";
+                progress();
                 model.getBalance(Url.getbalance,settledDate,page,this);
                 break;
         }
@@ -89,6 +95,7 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
 
     @Override
     public void onLoad() {
+        progress();
         model.getBalance(Url.getbalance,settledDate,page,this);
     }
 
@@ -122,7 +129,7 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
         dialog.setTitle("设置日期");
         dialog.setView(dialogView);
         dialog.show();
-        datePicker.init(year, month - 1, day, this);
+        datePicker.init(year, month - 1 , day, this);
         hideDay(datePicker);
     }
 
@@ -162,7 +169,7 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
     @Override
     public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         this.year = year;
-        this.month = monthOfYear;
+        this.month = monthOfYear + 1;
         this.day = dayOfMonth;
     }
 
@@ -178,18 +185,12 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
 
     @Override
     public void OnBalanceSuccess(String settled, List<InventoryMemberBean> list, String page) {
+        alertDialog.dismiss();
         Tv_bonus.setText(settled + "元");
         this.page = page;
         if(list != null){
             listView.setComplete(false);
-            if(isRefresh == true){
-                isRefresh = false;
-                adapter.clear();
-                mListyType.clear();
-            }
-            listView.loadComplete();
-            mListyType.addAll(list);
-            adapter.notifyDataSetChanged();
+            setData(list);
         }else{
             if(isRefresh != true){
                 listView.setComplete(true);
@@ -202,5 +203,21 @@ public class AchievementFragment extends BaseFragment implements onLoadListViewL
                 listView.loadComplete();
             }
         }
+    }
+
+    protected void setData(List<InventoryMemberBean> ListType) {
+        if (isRefresh == true) {
+            isRefresh = false;
+            adapter.clear();
+            mListyType.clear();
+        }
+        listView.loadComplete();
+        mListyType.addAll(ListType);
+        adapter.notifyDataSetChanged();
+    }
+
+    protected void progress(){
+        alertDialog = new SweetAlertDialog(context,SweetAlertDialog.PROGRESS_TYPE).setContentText("加载中...");
+        alertDialog.setCancelable(false);
     }
 }

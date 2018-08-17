@@ -146,6 +146,13 @@ public interface Url {
     String payself = host + "Inventory/payself";//支付自提信息(无需支付金额)
     String self_express = host + "Inventory/express";//自提物流信息
     String finish_self = host + "Inventory/finishself";//完成订单
+    String get_extr = host + "Inventory/getextr";//返点信息
+
+    String new_index = host + "Index/indexnew";//测试首页
+    String goods_list = host + "Goods/getlist";//商品列表
+
+    String incomes = host + "Income/getincomelist";//收入明细
+    String having_num = host + "Inventory/gethavegoods";//拥有商品数量
 
     String wxToken = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + Constants.WX_APP_KEY
             + "&secret=" + Constants.WX_APP_SECRET

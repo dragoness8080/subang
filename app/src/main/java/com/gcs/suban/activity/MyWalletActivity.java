@@ -62,6 +62,7 @@ public class MyWalletActivity extends BaseActivity implements OnInventoryStockLi
         Img_wallet_back.setOnClickListener(this);
         Btn_wallet.setOnClickListener(this);
         List_logs.setOnLoadListViewListener(this);
+        Rl_surplus_num.setOnClickListener(this);
 
         adapter = new InventoryLogAddAdapter(context,inventoryLogBeanList);
         List_logs.setAdapter(adapter);
@@ -80,6 +81,10 @@ public class MyWalletActivity extends BaseActivity implements OnInventoryStockLi
             case R.id.wallet_btn:
                 Intent intent = new Intent(context,InventoryAddActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.surplus_num:
+                Intent intent_num = new Intent(context,StockGoodsActivity.class);
+                startActivity(intent_num);
                 break;
             default:
                 break;

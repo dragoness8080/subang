@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.gcs.suban.view.MyScrollview
+                android:id="@+id/new_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/themeOrange"
+                            android:gravity="center"
+                            android:text="首页"
+                            android:textColor="@color/white"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/new_call_service"
+                            android:drawableLeft="@drawable/kefu2"
+                            android:gravity="center"
+                            android:drawablePadding="10dp"
+                            android:text="联系客服"
+                            android:layout_gravity="right|center_vertical"
+                            android:textSize="14dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/new_index_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </com.gcs.suban.view.MyScrollview>
+
+        </FrameLayout>
+
+</LinearLayout>

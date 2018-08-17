@@ -35,7 +35,6 @@ public class InvenotrySettleModelImpl implements InventorySettleModel {
         params.put("openid", MyDate.getMyVid());
         params.put("page", page);
         params.put("date", date);
-        Log.i(TAG,"POST请求成功-->" + params.toString());
         BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context,BaseStrVolleyInterFace.mListener,BaseStrVolleyInterFace.mErrorListener) {
             @Override
             public void onSuccess(String response) {
@@ -83,9 +82,11 @@ public class InvenotrySettleModelImpl implements InventorySettleModel {
         params.put("openid", MyDate.getMyVid());
         params.put("page", page);
         params.put("date", date);
+        Log.i(TAG,"POST请求成功-->" + params.toString());
         BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context,BaseStrVolleyInterFace.mListener,BaseStrVolleyInterFace.mErrorListener) {
             @Override
             public void onSuccess(String response) {
+                Log.i(TAG,"POST请求成功-->" + response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String result = jsonObject.getString("result");
@@ -93,12 +94,12 @@ public class InvenotrySettleModelImpl implements InventorySettleModel {
                         String page = jsonObject.getString("page");
                         String settled = jsonObject.getString("settled");
                         String isnull = jsonObject.getString("isnull");
-                        JSONArray jsonArray = jsonObject.getJSONArray("data");
                         List<InventoryMemberBean> memberBeanList = new ArrayList<InventoryMemberBean>();
-                        memberBean = new InventoryMemberBean();
                         if(isnull.equals("0")){
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject jsonObject1 = (JSONObject) jsonArray.opt(i);
+                                memberBean = new InventoryMemberBean();
                                 memberBean.realname = jsonObject1.getString("realname");
                                 memberBean.imgUrl = jsonObject1.getString("avatar");
                                 memberBean.nickname = jsonObject1.getString("nickname");

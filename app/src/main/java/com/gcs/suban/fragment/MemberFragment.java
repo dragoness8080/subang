@@ -26,6 +26,7 @@ import com.gcs.suban.activity.CollectActivity;
 import com.gcs.suban.activity.CouponActivity;
 import com.gcs.suban.activity.CustomerActivity;
 import com.gcs.suban.activity.FootprintActivity;
+import com.gcs.suban.activity.IncomeActivity;
 import com.gcs.suban.activity.InventoryActivity;
 import com.gcs.suban.activity.MessageActvity;
 import com.gcs.suban.activity.OrderActivity;
@@ -55,9 +56,6 @@ import org.json.JSONObject;
 import io.rong.eventbus.EventBus;
 
 
-/**
- * ??????????
- */
 public class MemberFragment extends BaseFragment implements OnMemberListener,
         OnRefreshListener {
     private String TAG = "MemberFragment";
@@ -77,6 +75,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     private Button Tv_person_customnum;
     private Button Tv_commission_num;
     private TextView Tv_commission_total;
+    private Button Tv_person_tweetnum;
 
     // private TextView Tv_rank;
     private TextView Tv_credit1;
@@ -102,12 +101,15 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     private CardView Cv_person_customer;
     private CardView Cv_person_myteam;
     private CardView Cv_stock;
+    private CardView Cv_person_income;
+    private CardView Cv_person_tweet;
 
     private RelativeLayout Rlyt_all;
     private RelativeLayout Rlyt_paid;
     private RelativeLayout Rlyt_deliver;
     private RelativeLayout Rlyt_harvest;
     private RelativeLayout Rlyt_refund;
+    private RelativeLayout Rlyt_income;
 
     // private RelativeLayout Rlyt_backstage;
 
@@ -262,6 +264,9 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
                     startActivity(intent_stock);
                 }
                 break;
+            case R.id.cv_person_income:
+                Intent intent_income = new Intent(context, IncomeActivity.class);
+                startActivity(intent_income);
             default:
                 break;
         }
@@ -302,6 +307,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Tv_commission_total = (TextView) context
                 .findViewById(R.id.tv_commission_total);
         Tv_time = (TextView) context.findViewById(R.id.tv_duetotime);
+        Tv_person_tweetnum = (Button)context.findViewById(R.id.tv_person_tweetnum);
 
         Img_logo = (ImageView) context.findViewById(R.id.img_personal_logo);
         Img_level = (ImageView) context.findViewById(R.id.img_level);
@@ -337,6 +343,8 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Cv_person_myteam = (CardView) context
                 .findViewById(R.id.cv_person_myteam);
         Cv_stock = (CardView) context.findViewById(R.id.cv_stock);
+        Cv_person_income = (CardView)context.findViewById(R.id.cv_person_income);
+        Cv_person_tweet = (CardView)context.findViewById(R.id.cv_perspn_tweet);
 
         Rlyt_all = (RelativeLayout) context.findViewById(R.id.rlyt_all_orders);
         Rlyt_paid = (RelativeLayout) context
@@ -394,6 +402,8 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Cv_person_customer.setOnClickListener(this);
         Cv_person_myteam.setOnClickListener(this);
         Cv_stock.setOnClickListener(this);
+        Cv_person_income.setOnClickListener(this);
+        Cv_person_tweet.setOnClickListener(this);
 
         hideView();
 
@@ -413,9 +423,6 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         this.onRefresh();
     }
 
-    /**
-     * ????????
-     */
     private void setData(MemberBean bean) {
         this.bean = bean;
 
@@ -433,6 +440,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Tv_person_customnum.setText(bean.mycustom);
         Tv_commission_num.setText(bean.commission_order);
         Tv_commission_total.setText(bean.commission_total + "Ԫ");
+        Tv_person_tweetnum.setText(bean.tweer);
 
         Btn_paidnum.setText(bean.waitpay_num);
         Btn_delivernum.setText(bean.waitsend_num);
@@ -455,9 +463,6 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         ShowView();
     }
 
-    /**
-     * ???????
-     */
     private void hideView() {
         Img_level.setVisibility(View.INVISIBLE);
         Tv_name.setVisibility(View.INVISIBLE);
@@ -482,11 +487,10 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Tv_person_customnum.setVisibility(View.INVISIBLE);
         Tv_commission_num.setVisibility(View.INVISIBLE);
         Tv_commission_total.setVisibility(View.INVISIBLE);
+        Tv_person_tweetnum.setVisibility(View.INVISIBLE);
+        Cv_person_tweet.setVisibility(View.GONE);
     }
 
-    /**
-     * ??????
-     */
     private void ShowView() {
 
         Tv_name.setVisibility(View.VISIBLE);
@@ -505,6 +509,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Tv_person_customnum.setVisibility(View.VISIBLE);
         Tv_commission_num.setVisibility(View.VISIBLE);
         Tv_commission_total.setVisibility(View.VISIBLE);
+        Tv_person_tweetnum.setVisibility(View.VISIBLE);
 
         if (isVIP.equals("0")) {
             Cv_person_time.setVisibility(View.GONE);
@@ -570,9 +575,6 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         });
     }
 
-    /**
-     * ???????
-     */
     @Override
     public void onRefresh() {
         // TODO Auto-generated method stub
@@ -612,9 +614,6 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         }
     }
 
-    /**
-     * ?????
-     */
     public void onEventMainThread(PersonEvent event) {
         String msg = event.getMsg();
         if (event.getType().equals("nickname")) {

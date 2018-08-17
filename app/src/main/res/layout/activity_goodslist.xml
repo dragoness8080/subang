@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_title_back" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white">
+
+                <ImageButton
+                    android:id="@+id/category_btn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/icon_list"/>
+
+                <TextView
+                    android:id="@+id/list_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="全部商品"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/goods_search"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_search"/>
+
+                <ImageView
+                    android:id="@+id/goods_order"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/goods_search"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/icon_orderby"/>
+
+            </RelativeLayout>
+
+            <include layout="@layout/layout_splitline" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white">
+
+            </RelativeLayout>
+
+            <com.gcs.suban.view.LoadGridView
+                android:id="@+id/goods_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="2"
+                android:horizontalSpacing="2dp"
+                android:verticalSpacing="2dp">
+
+            </com.gcs.suban.view.LoadGridView>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/category_list"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:background="#bb000000">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/all_cate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="全部商品"
+                        android:textColor="@color/white"
+                        android:layout_centerInParent="true"
+                        android:textSize="20dp"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/wheit_list"
+                        android:drawablePadding="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/cate_back"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/wheit_left_point"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/isnew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/wheit_car"
+                    android:drawablePadding="5dp"
+                    android:text="新品宝贝"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/isrecommand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/wheit_heart"
+                    android:drawablePadding="5dp"
+                    android:text="推荐宝贝"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/ishot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/wheit_fire"
+                    android:drawablePadding="5dp"
+                    android:text="热销宝贝"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/istime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/wheit_time"
+                    android:drawablePadding="5dp"
+                    android:text="限时秒杀"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/isdiscount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/wheit_tj"
+                    android:drawablePadding="5dp"
+                    android:text="促销宝贝"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bgNotice">
+
+        <ImageView
+            android:id="@+id/new_notice_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/notice"
+            android:layout_marginLeft="20dp"/>
+
+        <com.gcs.suban.view.AutoScrollTextView
+            android:id="@+id/new_scroll_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/new_notice_img"
+            android:gravity="right"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="公告测试"
+            android:textColor="@color/white"
+            android:textSize="16sp">
+
+        </com.gcs.suban.view.AutoScrollTextView>
+
+    </RelativeLayout>
+
+</LinearLayout>
