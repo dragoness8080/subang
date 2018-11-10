@@ -29,6 +29,8 @@ public class InventoryLogAdapter extends BaseListAdapter<InventoryLogBean> {
         public TextView Tv_settle_price;
         public TextView Tv_order_status;
         public TextView Tv_log_status;
+        public TextView Tv_log_nickname;
+        public TextView Tv_type;
     }
 
     @Override
@@ -47,6 +49,8 @@ public class InventoryLogAdapter extends BaseListAdapter<InventoryLogBean> {
             holder.Tv_settle_price = (TextView)convertView.findViewById(R.id.tv_settle_price);
             holder.Tv_order_status = (TextView)convertView.findViewById(R.id.tv_order_status);
             holder.Tv_log_status = (TextView)convertView.findViewById(R.id.tv_log_status);
+            holder.Tv_log_nickname = (TextView)convertView.findViewById(R.id.tv_log_nickname);
+            holder.Tv_type = (TextView)convertView.findViewById(R.id.tv_type);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder)convertView.getTag();
@@ -61,9 +65,16 @@ public class InventoryLogAdapter extends BaseListAdapter<InventoryLogBean> {
         holder.Tv_jiancang_price.setText(String.valueOf(bean.money));
         holder.Tv_settle_price.setText(String.valueOf(bean.settle_money));
         holder.Tv_order_status.setText(bean.statusStr);
+        holder.Tv_log_nickname.setText(bean.nickname);
 
         if(bean.types.equals("stock.selfbuy")){
             holder.Tv_log_status.setVisibility(View.INVISIBLE);
+        }
+
+        if(bean.is_type == 0){
+            holder.Tv_type.setVisibility(View.GONE);
+        }else{
+            holder.Tv_type.setVisibility(View.VISIBLE);
         }
 
         if(bean.status == 0){

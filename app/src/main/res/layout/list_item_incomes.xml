@@ -233,6 +233,89 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/manual_agent"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/manual_agent_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="代理收入"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/manual_agent_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/manual_agent_text"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:text="20.00"
+                    android:textColor="@color/orange"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/manual_agent_price"
+                    android:layout_alignBaseline="@id/manual_agent_price"
+                    android:textSize="14sp"
+                    android:textColor="@color/orange"
+                    android:text="¥"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/txtGrayColor"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/manual_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/manual_recommend_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="推荐奖励"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/manual_recommend_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBaseline="@id/manual_recommend_text"
+                    android:layout_marginRight="10dp"
+                    android:text="20.00"
+                    android:textColor="@color/orange"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/manual_recommend_price"
+                    android:layout_alignBaseline="@id/manual_recommend_price"
+                    android:textSize="14sp"
+                    android:textColor="@color/orange"
+                    android:text="¥"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/txtGrayColor"/>
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </RelativeLayout>

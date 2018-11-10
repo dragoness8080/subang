@@ -154,6 +154,20 @@ public interface Url {
     String incomes = host + "Income/getincomelist";//收入明细
     String having_num = host + "Inventory/gethavegoods";//拥有商品数量
 
+    String sign_in = host + "Sellcenter/signin";//签到
+    String leaf_exchange = host + "Sellcenter/exchange";//兑换
+
+    String lottery_list = host + "Lottery/getPrizeList"; //抽奖商品列表
+    String lottery_reware = host + "Lottery/luckDraw"; //获得中奖信息
+    String reward_list = host + "Lottery/getreward"; //所有中奖列表
+
+    String proxy = host + "Proxy/getProxy"; //证书
+
+    String settled = host + "Settled/settlecenter"; //获取库存结信息
+    String balance_settle = host + "Settled/setcommission"; //结算
+    String commission_settle  = host + "Settled/commissionlist"; //佣金明细
+    String settle_list = host + "Settled/getlog";
+
     String wxToken = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + Constants.WX_APP_KEY
             + "&secret=" + Constants.WX_APP_SECRET
             + "&grant_type=authorization_code";//获取微信openid

@@ -153,7 +153,7 @@ public class StockSettleFragment extends BaseFragment implements OnInventorySett
         page = "0";
         adapter.clear();
         mListType.clear();
-        model.getSettled(Url.getsettled,settle_date,page,this);
+        model.getSettled(Url.getsettled,0,settle_date,page,this);
     }
 
     @Override
@@ -196,6 +196,6 @@ public class StockSettleFragment extends BaseFragment implements OnInventorySett
 
     @Override
     public void onLoad() {
-        model.getSettled(Url.getsettled,settle_date,page,this);
+        model.getSettled(Url.getsettled,0,settle_date,page,this);
     }
 }

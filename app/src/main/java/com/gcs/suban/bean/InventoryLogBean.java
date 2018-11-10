@@ -21,4 +21,6 @@ public class InventoryLogBean {
     public String thumb;//商品图片
     public String remark;//备注
     public String marketprice;//市场价
+    public String nickname;//会员昵称
+    public int is_type; //类型
 }

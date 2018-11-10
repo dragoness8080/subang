@@ -10,6 +10,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,6 +82,8 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
 
     private ArrayList<String> bannerUrlList = new ArrayList<>();
 
+    private int screenHeight = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.new_fragment_home,container,false);
@@ -104,17 +107,23 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
         swipeRefreshLayout = (VpSwipeRefreshLayout)context.findViewById(R.id.new_vpswiperefresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
         InitSwipeRefreshLayout();
+
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        Log.e("Height", "screen=" + dm.heightPixels);
+        screenHeight = dm.heightPixels;
+        
+        homeModal = new ShopModelImpl();
         if(mCache.getAsString(TAG) != null){
             JsonResolve(mCache.getAsString(TAG));
+        }else{
+            swipeRefreshLayout.post(new Runnable() {
+                @Override
+                public void run() {
+                    swipeRefreshLayout.setRefreshing(true);
+                }
+            });
+            this.onRefresh();
         }
-        swipeRefreshLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                swipeRefreshLayout.setRefreshing(true);
-            }
-        });
-        homeModal = new ShopModelImpl();
-        this.onRefresh();
         myScrollview.setOnScrollToLongListener(new MyScrollview.OnScrollToLongListener() {
             @Override
             public void onScrolToLong(int distance) {
@@ -130,6 +139,8 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
                 }
             }
         });
+
+
     }
 
     @Override
@@ -270,7 +281,7 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
         notice_text.setText(text);
         notice_text.init(getActivity().getWindowManager());
         notice_text.startScroll();
-
+        displayViewHeihgt(view,"noticeView");
         return view;
     }
 
@@ -287,6 +298,7 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
                 startActivity(intent);
             }
         });
+        displayViewHeihgt(view,"searchView");
         return view;
     }
 
@@ -325,7 +337,7 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
                 }
             }
         });
-
+        displayViewHeihgt(view,"menuView");
         return view;
     }
 
@@ -355,12 +367,13 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
                 }
             }
         });
-
+        displayViewHeihgt(view,"pictureView");
         return view;
     }
 
     private View blackView(){
         View view = layoutInflater.inflate(R.layout.layout_index_space, null);
+        displayViewHeihgt(view,"blackView");
         return view;
     }
 
@@ -371,7 +384,7 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
         HomeGoodsAdapter goodsAdapter = new HomeGoodsAdapter(context, mListType);
         goodsGridView.setAdapter(goodsAdapter);
         goodsAdapter.notifyDataSetChanged();
-
+        displayViewHeihgt(view,"goodsView");
         return view;
     }
 
@@ -427,6 +440,7 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
         });
         videoView.start();
         */
+        displayViewHeihgt(view,"richtext");
         return view;
     }
 
@@ -434,6 +448,7 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
         View view = layoutInflater.inflate(R.layout.layout_index_banner,null);
         Banner banner = (Banner)view.findViewById(R.id.new_banner);
         banner.setImages(bannerUrlList).setImageLoader(new GlideImageLoader()).start();
+        displayViewHeihgt(view,"banner");
         return view;
     }
 
@@ -470,6 +485,7 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         recyclerView.addItemDecoration( new DividerItemDecoration());
         recyclerView.setAdapter(new CubeAdapter(context,cubeChildAdapterList));
+        displayViewHeihgt(view,"cube");
         return view;
     }
 
@@ -526,5 +542,12 @@ public class NewHomeFragment extends BaseFragment implements SwipeRefreshLayout.
                 outRect.left = 5;
             }
         }
+    }
+
+    protected void displayViewHeihgt(View view,String tag){
+        int width = View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);
+        int height = View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);
+        view.measure(width,height);
+        Log.e("Height", tag + "=" + view.getMeasuredHeight());
     }
 }

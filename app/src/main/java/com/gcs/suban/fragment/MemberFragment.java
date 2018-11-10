@@ -25,6 +25,7 @@ import com.gcs.suban.activity.CarActivity;
 import com.gcs.suban.activity.CollectActivity;
 import com.gcs.suban.activity.CouponActivity;
 import com.gcs.suban.activity.CustomerActivity;
+import com.gcs.suban.activity.DiscLotteryActivity;
 import com.gcs.suban.activity.FootprintActivity;
 import com.gcs.suban.activity.IncomeActivity;
 import com.gcs.suban.activity.InventoryActivity;
@@ -52,6 +53,10 @@ import com.gcs.suban.tools.ToastTool;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import io.rong.eventbus.EventBus;
 
@@ -81,6 +86,9 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     private TextView Tv_credit1;
     private TextView Tv_credit2;
     private TextView Tv_time;
+    private TextView Tv_sign;
+
+    private TextView Tv_trees;
 
     private ImageView Img_logo;
     private ImageView Img_level;
@@ -103,6 +111,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     private CardView Cv_stock;
     private CardView Cv_person_income;
     private CardView Cv_person_tweet;
+    private CardView Cv_person_lottery;
 
     private RelativeLayout Rlyt_all;
     private RelativeLayout Rlyt_paid;
@@ -110,6 +119,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     private RelativeLayout Rlyt_harvest;
     private RelativeLayout Rlyt_refund;
     private RelativeLayout Rlyt_income;
+    private RelativeLayout Rlyt_signin;
 
     // private RelativeLayout Rlyt_backstage;
 
@@ -123,6 +133,9 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     private Button Btn_messagenum;
     private Button Btn_carnum;
     private Button Btn_collectnum;
+
+    private Button Btn_signin;
+    private Button Btn_exchange;
 
     private MemberModel memberModel;
 
@@ -267,6 +280,16 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
             case R.id.cv_person_income:
                 Intent intent_income = new Intent(context, IncomeActivity.class);
                 startActivity(intent_income);
+            case R.id.leaf_sign:
+                memberModel.signIn(Url.sign_in,this);
+                break;
+            case R.id.leaf_exchange:
+                memberModel.exchange(Url.leaf_exchange,this);
+                break;
+            case R.id.cv_person_lottery:
+                Intent intent_lottery = new Intent(context, DiscLotteryActivity.class);
+                startActivity(intent_lottery);
+                break;
             default:
                 break;
         }
@@ -308,6 +331,8 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
                 .findViewById(R.id.tv_commission_total);
         Tv_time = (TextView) context.findViewById(R.id.tv_duetotime);
         Tv_person_tweetnum = (Button)context.findViewById(R.id.tv_person_tweetnum);
+        Tv_sign = (TextView)context.findViewById(R.id.leaf_point);
+        Tv_trees = (TextView)context.findViewById(R.id.trees);
 
         Img_logo = (ImageView) context.findViewById(R.id.img_personal_logo);
         Img_level = (ImageView) context.findViewById(R.id.img_level);
@@ -345,6 +370,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Cv_stock = (CardView) context.findViewById(R.id.cv_stock);
         Cv_person_income = (CardView)context.findViewById(R.id.cv_person_income);
         Cv_person_tweet = (CardView)context.findViewById(R.id.cv_perspn_tweet);
+        Cv_person_lottery = (CardView)context.findViewById(R.id.cv_person_lottery);
 
         Rlyt_all = (RelativeLayout) context.findViewById(R.id.rlyt_all_orders);
         Rlyt_paid = (RelativeLayout) context
@@ -355,6 +381,7 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
                 .findViewById(R.id.rlyt_person_harvest);
         Rlyt_refund = (RelativeLayout) context
                 .findViewById(R.id.rlyt_person_refund);
+        Rlyt_signin = (RelativeLayout)context.findViewById(R.id.rlty_sign_in);
 
         Llyt_commision = (LinearLayout) context
                 .findViewById(R.id.llyt_commission);
@@ -369,6 +396,8 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Btn_messagenum = (Button) context.findViewById(R.id.newsnum);
         Btn_carnum = (Button) context.findViewById(R.id.carnum);
         Btn_collectnum = (Button) context.findViewById(R.id.collectnum);
+        Btn_signin = (Button)context.findViewById(R.id.leaf_sign);
+        Btn_exchange = (Button)context.findViewById(R.id.leaf_exchange);
 
         swipeRefreshLayout = (SwipeRefreshLayout) context
                 .findViewById(R.id.swipeRefreshLayout_member);
@@ -404,13 +433,16 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Cv_stock.setOnClickListener(this);
         Cv_person_income.setOnClickListener(this);
         Cv_person_tweet.setOnClickListener(this);
+        Cv_person_lottery.setOnClickListener(this);
+
+        Btn_signin.setOnClickListener(this);
+        Btn_exchange.setOnClickListener(this);
 
         hideView();
 
         memberModel = new MemberModelImpl();
         if (mCache.getAsString(TAG) != null) {
             JsonResolve(mCache.getAsString(TAG));
-            Log.i(TAG, "???????????  ---- " + mCache.getAsString(TAG));
         }
 
         swipeRefreshLayout.post(new Runnable() {
@@ -435,12 +467,14 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         Tv_personal_people.setText(bean.agentname);
         Tv_personal_time.setText(bean.createtime);
         // Tv_commissionprice.setText(bean.commission_orderprice+"?");
-        Tv_commission_ok.setText(bean.commission_ok + "Ԫ");
+        Tv_commission_ok.setText(bean.commission_ok);
         Tv_person_teamnum.setText(bean.myteam);
         Tv_person_customnum.setText(bean.mycustom);
         Tv_commission_num.setText(bean.commission_order);
-        Tv_commission_total.setText(bean.commission_total + "Ԫ");
+        Tv_commission_total.setText(bean.commission_total);
         Tv_person_tweetnum.setText(bean.tweer);
+        Tv_sign.setText(bean.signin_leaf);
+        Tv_trees.setText(bean.trees);
 
         Btn_paidnum.setText(bean.waitpay_num);
         Btn_delivernum.setText(bean.waitsend_num);
@@ -459,6 +493,23 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
         imageLoader.displayImage(bean.avatar, Img_logo, options3);
 
         inventory_grade = bean.inventory_grade;
+
+        boolean flag = getSignInFlag(bean.signin_date);
+        if(!flag){
+            Btn_signin.setText(R.string.sign_in_on);
+            Btn_signin.setBackgroundResource(R.drawable.button_arc_orange);
+            Btn_signin.setOnClickListener(this);
+        }else{
+            Btn_signin.setText(R.string.sign_in_off);
+            Btn_signin.setBackgroundResource(R.drawable.button_arc_green);
+        }
+        boolean leafFlag = getLeafFlag(bean.signin_leaf);
+        if(!leafFlag){
+            Btn_exchange.setBackgroundResource(R.drawable.button_arc_orange);
+            Btn_exchange.setOnClickListener(this);
+        }else{
+            Btn_exchange.setBackgroundResource(R.drawable.button_arc_green);
+        }
 
         ShowView();
     }
@@ -576,6 +627,24 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     }
 
     @Override
+    public void onSignSuccess(int flag, String leaf) {
+        if(flag == 1){
+            Btn_signin.setText(R.string.sign_in_off);
+            Btn_signin.setBackgroundResource(R.drawable.button_arc_green);
+            Btn_signin.setOnClickListener(null);
+
+            Tv_sign.setText(leaf);
+        }
+    }
+
+    @Override
+    public void onExchangeSuccess(String leaf, String credit) {
+        Tv_sign.setText(leaf);
+        Tv_credit2.setText(credit);
+        Btn_exchange.setBackgroundResource(R.drawable.button_arc_green);
+    }
+
+    @Override
     public void onRefresh() {
         // TODO Auto-generated method stub
         memberModel.getInfo(Url.member, this);
@@ -641,5 +710,32 @@ public class MemberFragment extends BaseFragment implements OnMemberListener,
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+    }
+
+    /**
+     * @param signDate
+     * @return
+     */
+    private boolean getSignInFlag(String signDate){
+        boolean flag = false;
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String date = df.format(new Date());
+        if(signDate.equals(date)){
+            flag = true;
+        }
+        return flag;
+    }
+
+    /**
+     *
+     * @param leaf
+     * @return
+     */
+    private boolean getLeafFlag(String leaf){
+        boolean flag = false;
+        if(Integer.valueOf(leaf) < 100){
+            flag = true;
+        }
+        return flag;
     }
 }

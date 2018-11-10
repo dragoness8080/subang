@@ -12,6 +12,10 @@ public class IncomeBean {
     private double stockCommission;
     private int balanceFlag;
     private double balanceCommission;
+    private int manualAgentFlag;
+    private double manualAgentCommission;
+    private int manualRecommendFlag;
+    private double manualRecommendCommission;
 
     public void setDate(String date){   this.date = date;}
     public void setOrder(int flag){ orderFlag = flag;}
@@ -24,6 +28,10 @@ public class IncomeBean {
     public void setStockCommission(double commission){  stockCommission = commission;}
     public void setBalance(int flag){   balanceFlag = flag;}
     public void setBalanceCommission(double commission){    balanceCommission = commission;}
+    public void setManualAgent(int flag){   manualAgentFlag = flag;}
+    public void setManualAgentCommission(double commission){    manualAgentCommission = commission;}
+    public void setManualRecommend(int flag){   manualRecommendFlag = flag;}
+    public void setManualRecommendCommission(double commission){    manualRecommendCommission = commission;}
     public String getDate(){    return date;}
     public int hasOrder(){  return orderFlag;}
     public double getOrderCommission(){ return orderCommission;}
@@ -35,4 +43,8 @@ public class IncomeBean {
     public double getStockCommission(){ return stockCommission;}
     public int hasBalance(){    return balanceFlag;}
     public double getBalanceCommission(){   return balanceCommission;}
+    public int hasManualAgent(){    return manualAgentFlag;}
+    public double getManualAgentCommission(){   return manualAgentCommission;}
+    public int hasManualRecommend(){    return manualRecommendFlag;}
+    public double getManualRecommendCommission(){   return manualRecommendCommission;}
 }

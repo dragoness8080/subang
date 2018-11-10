@@ -19,11 +19,11 @@
         <com.gcs.suban.view.AutoScrollTextView
             android:id="@+id/new_scroll_text"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_toRightOf="@id/new_notice_img"
-            android:gravity="right"
+            android:gravity="right|center_vertical"
             android:layout_centerVertical="true"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"

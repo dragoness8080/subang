@@ -58,6 +58,10 @@ public class IncomeModelImpl implements IncomeModel {
                                 incomeBean.setStockCommission(json.getDouble("stock_commission"));
                                 incomeBean.setBalance(json.getInt("has_achievement"));
                                 incomeBean.setBalanceCommission(json.getDouble("achievement_commission"));
+                                incomeBean.setManualAgent(json.getInt("has_manual_agent"));
+                                incomeBean.setManualAgentCommission(json.getDouble("manual_agent_commission"));
+                                incomeBean.setManualRecommend(json.getInt("has_manual_recommend"));
+                                incomeBean.setManualRecommendCommission(json.getDouble("manual_recommend_commission"));
                                 mList.add(incomeBean);
                             }
                         }

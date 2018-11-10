@@ -13,7 +13,7 @@ import com.gcs.suban.bean.RecordBean;
 /**
  * ?????? ??????
  */
-public class RecordAdapter extends BaseListAdapter<RecordBean> {
+public class RecordAdapter extends BaseListAdapter<RecordBean>  {
 
 	public RecordAdapter(Context context, List<RecordBean> list) {
 		super(context, list);

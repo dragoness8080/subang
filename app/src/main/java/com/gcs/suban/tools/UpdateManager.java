@@ -47,7 +47,7 @@ public class UpdateManager {
 	    private boolean cancelFlag = false; //取消下载标志位
 	    private String  banben; 
 	    private double serverVersion; //从服务器获取的版本号
-	    private double clientVersion = 25.0; //客户端当前的版本号
+	    private double clientVersion = 28.0; //客户端当前的版本号
 	    private String updateDescription; //更新内容描述信息
 	    private boolean forceUpdate = false; //是否强制更新
 

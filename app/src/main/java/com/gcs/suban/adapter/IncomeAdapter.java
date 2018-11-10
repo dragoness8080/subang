@@ -10,6 +10,8 @@ import com.gcs.suban.R;
 import com.gcs.suban.base.BaseListAdapter;
 import com.gcs.suban.bean.IncomeBean;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class IncomeAdapter extends BaseListAdapter<IncomeBean> {
@@ -31,6 +33,12 @@ public class IncomeAdapter extends BaseListAdapter<IncomeBean> {
         public RelativeLayout balance_commission;
         public TextView balance_title;
         public TextView balance_price;
+        public RelativeLayout manual_agent;
+        public TextView manual_agent_title;
+        public TextView manual_agent_price;
+        public RelativeLayout manual_recommend;
+        public TextView manual_recommend_title;
+        public TextView manual_recommend_price;
     }
 
     public IncomeAdapter(Context context, List<IncomeBean> list) {
@@ -59,6 +67,12 @@ public class IncomeAdapter extends BaseListAdapter<IncomeBean> {
             viewHolder.balance_commission = (RelativeLayout)convertView.findViewById(R.id.balance_commission);
             viewHolder.balance_title = (TextView)convertView.findViewById(R.id.balance_title);
             viewHolder.balance_price = (TextView)convertView.findViewById(R.id.balance_price);
+            viewHolder.manual_agent = (RelativeLayout)convertView.findViewById(R.id.manual_agent);
+            viewHolder.manual_agent_title = (TextView)convertView.findViewById(R.id.manual_agent_text);
+            viewHolder.manual_agent_price = (TextView)convertView.findViewById(R.id.manual_agent_price);
+            viewHolder.manual_recommend = (RelativeLayout)convertView.findViewById(R.id.manual_recommend);
+            viewHolder.manual_recommend_title = (TextView)convertView.findViewById(R.id.manual_recommend_text);
+            viewHolder.manual_recommend_price = (TextView)convertView.findViewById(R.id.manual_recommend_price);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder)convertView.getTag();
@@ -103,6 +117,18 @@ public class IncomeAdapter extends BaseListAdapter<IncomeBean> {
             viewHolder.balance_price.setText(String.valueOf(incomeBean.getBalanceCommission()));
         }else{
             viewHolder.balance_commission.setVisibility(View.GONE);
+        }
+        if(incomeBean.hasManualAgent() == 1){
+            viewHolder.manual_agent.setVisibility(View.VISIBLE);
+            viewHolder.manual_agent_price.setText(String.valueOf(incomeBean.getManualAgentCommission()));
+        }else{
+            viewHolder.manual_agent.setVisibility(View.GONE);
+        }
+        if(incomeBean.hasManualRecommend() == 1){
+            viewHolder.manual_recommend.setVisibility(View.VISIBLE);
+            viewHolder.manual_recommend_price.setText(String.valueOf(incomeBean.getManualRecommendCommission()));
+        }else{
+            viewHolder.manual_recommend.setVisibility(View.GONE);
         }
 
         return convertView;

@@ -258,9 +258,10 @@ public class PayStockPopWindow extends BaseActivity implements OnPayStockListene
                     //取消支付
                     break;
                 case BCPayResult.RESULT_FAIL:
-                    String errmsg = "支付失败，原因：" + bcPayResult.getErrCode() + "#" + bcPayResult.getErrMsg() + "#" + bcPayResult.getDetailInfo();
+                    String errmsg = "支付失败，原因：" + bcPayResult.getErrCode() + "#" + bcPayResult.getErrMsg() + "#" + bcPayResult.getDetailInfo() + ",请重新下单!";
                     if(bcPayResult.getErrCode() == 7){
-                        Toast.makeText(context, errmsg, Toast.LENGTH_SHORT).show();
+                        ToastTool.showToast(context,errmsg);
+                        finish();
                     }
                     break;
             }

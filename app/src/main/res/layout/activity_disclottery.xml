@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_inventory_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.gcs.suban.view.DiscLotterView
+            android:id="@+id/ls_lucky"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="50dp"/>
+
+        <RelativeLayout
+            android:id="@+id/ls_start"
+            android:layout_width="62dp"
+            android:layout_height="88dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/lottery_point">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="抽奖"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="38dp"/>
+
+            <TextView
+                android:id="@+id/lottery_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#剩余 0 次"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="63dp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

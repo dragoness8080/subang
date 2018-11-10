@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.gcs.suban.R;
 import com.gcs.suban.adapter.ViewpagerAdapter;
 import com.gcs.suban.fragment.AchievementFragment;
+import com.gcs.suban.fragment.SettleCenterFragment;
 import com.gcs.suban.fragment.StockSettleFragment;
 
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ public class InventorySettleActivity extends FragmentActivity implements OnClick
         mPager.setOffscreenPageLimit(2);
         fragmentList = new ArrayList<Fragment>();
         fragment1 = new StockSettleFragment();
+        //fragment1 = new SettleCenterFragment();
         fragment2 = new AchievementFragment();
 
         fragmentList.add(fragment1);

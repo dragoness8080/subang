@@ -50,6 +50,9 @@
     <string name="set_default_address">设置为默认地址</string>
     <string name="save">保存</string>
 
+    <string name="sign_in_off">已签到</string>
+    <string name="sign_in_on">签到</string>
+
     <item name="tag_first" type="id"></item>
     <item name="tag_third" type="id"></item>
     <item name="tag_second" type="id"></item>

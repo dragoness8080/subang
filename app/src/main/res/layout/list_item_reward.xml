@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/white"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:id="@+id/reward_createtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:text="#获奖时间"/>
+            <TextView
+                android:id="@+id/reward_exchangetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                android:text="#兑换时间"
+                android:textColor="@color/themeOrange"/>
+        </RelativeLayout>
+
+        <include layout="@layout/layout_splitline" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+            <ImageView
+                android:id="@+id/reward_img"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:id="@+id/reward_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/reward_img"
+                android:layout_alignTop="@id/reward_img"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:text="#商品名称"/>
+            <TextView
+                android:id="@+id/reward_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/reward_img"
+                android:layout_centerVertical="true"
+                android:textSize="13sp"
+                android:textColor="@color/themeOrange"
+                android:text="#一等奖"/>
+            <TextView
+                android:id="@+id/reward_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/reward_img"
+                android:layout_toRightOf="@id/reward_img"
+                android:textSize="13sp"
+                android:textColor="@color/white"
+                android:background="@drawable/order_status_pay"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="#已兑换"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -29,12 +29,14 @@ public class InvenotrySettleModelImpl implements InventorySettleModel {
     protected InventoryMemberBean memberBean;
     protected Gson gson;
     @Override
-    public void getSettled(String url, String date, String page, final OnInventorySettleListener listener) {
+    public void getSettled(String url, int id, String date, String page, final OnInventorySettleListener listener) {
         final String TAG = url;
         Map<String,String> params = new HashMap<String,String>();
         params.put("openid", MyDate.getMyVid());
         params.put("page", page);
+        params.put("id", String.valueOf(id));
         params.put("date", date);
+        Log.i("settled","POST------>" + params.toString());
         BaseVolleyRequest.StringRequestPost(context, url, TAG, params, new BaseStrVolleyInterFace(context,BaseStrVolleyInterFace.mListener,BaseStrVolleyInterFace.mErrorListener) {
             @Override
             public void onSuccess(String response) {

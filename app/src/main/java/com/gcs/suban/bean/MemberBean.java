@@ -38,5 +38,9 @@ public class MemberBean {
 	public String duetotime;
 	public String dispose;
 	public String inventory_grade; //库存等级
+	public String signin_date; //上次签到日期
+	public String signin_times; //连续签到次数
+	public String signin_leaf; //叶子
+	public String trees; //树
 
 }
